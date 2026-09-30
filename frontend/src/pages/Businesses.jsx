@@ -48,7 +48,9 @@ export default function Businesses() {
   } else if (filteredBusinesses) {
     content = (
       <div className="card-grid business-grid">
-        {filteredBusinesses.map((business) => <BusinessCard business={business} key={business.id} />)}
+        {filteredBusinesses.map((business) => (
+          <BusinessCard business={business} key={business.id} to={`/comercos/${business.id}`} />
+        ))}
       </div>
     )
   }

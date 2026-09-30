@@ -1,5 +1,8 @@
+import { Link } from 'react-router-dom'
+
 export default function EventCard({ event }) {
   return (
+    <Link className="event-card-link" to={`/agenda/${event.id}`}>
     <article className="event-card">
       <div
         className={`card-image${event.imageUrl ? '' : ' image-placeholder'}`}
@@ -14,5 +17,6 @@ export default function EventCard({ event }) {
         <p>{event.description}</p>
       </div>
     </article>
+    </Link>
   )
 }

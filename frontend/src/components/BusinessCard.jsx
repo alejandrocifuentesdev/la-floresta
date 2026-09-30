@@ -1,5 +1,7 @@
-export default function BusinessCard({ business }) {
-  return (
+import { Link } from 'react-router-dom'
+
+export default function BusinessCard({ business, to }) {
+  const card = (
     <article className="business-card">
       <div
         className={`business-image${business.imageUrl ? '' : ' image-placeholder'}`}
@@ -14,4 +16,8 @@ export default function BusinessCard({ business }) {
       </div>
     </article>
   )
+
+  if (!to) return card
+
+  return <Link className="business-card-link" to={to}>{card}</Link>
 }

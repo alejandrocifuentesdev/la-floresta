@@ -49,8 +49,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .text-link span { margin-left: 10px; font-size: 18px; }
 
 .card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 31px; }
-.event-card, .business-card { min-width: 0; }
-.card-image, .business-image {
+.event-card, .business-card, .route-card, .point-card { min-width: 0; }
+.card-image, .business-image, .route-image, .point-image {
   width: 100%;
   aspect-ratio: 1.88 / 1;
   background-size: cover;
@@ -60,13 +60,19 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 .image-placeholder { background-color: var(--soft); }
 
-.event-content, .business-content { padding-top: 12px; }
+.event-content, .business-content, .route-content, .point-content { padding-top: 12px; }
 .card-meta { margin-bottom: 7px; color: var(--muted); font-size: 12px; text-transform: uppercase; }
-.event-card h3, .business-card h3 { margin-bottom: 7px; font-size: 19px; line-height: 1.2; font-weight: 600; }
+.event-card h3, .business-card h3, .route-card h3, .point-card h3 { margin-bottom: 7px; font-size: 19px; line-height: 1.2; font-weight: 600; }
 .event-content > p:last-child, .business-content > p { color: var(--muted); font-size: 14px; line-height: 1.35; }
 .event-content > p:last-child { margin: 12px 0 0; }
 .location { display: flex; gap: 8px; margin: 0; color: #777; font-size: 11px; line-height: 1.3; }
 .location span { font-size: 14px; }
+.business-card-link, .point-card-link, .event-card-link { display: block; cursor: pointer; }
+.business-card-link .business-card, .point-card-link .point-card, .event-card-link .event-card { transition: transform .15s ease; }
+.business-card-link:hover .business-card, .business-card-link:focus-visible .business-card,
+.point-card-link:hover .point-card, .point-card-link:focus-visible .point-card,
+.event-card-link:hover .event-card, .event-card-link:focus-visible .event-card { transform: translateY(-3px); }
+.business-card-link:focus-visible, .point-card-link:focus-visible, .event-card-link:focus-visible { outline: 1px solid #111; outline-offset: 5px; }
 
 .explore-section { background: var(--soft); }
 .explore-inner { padding-top: 30px; padding-bottom: 31px; }
@@ -82,9 +88,55 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .agenda-section h1 { margin-bottom: 38px; font-size: 38px; font-weight: 500; }
 .agenda-section h2 { margin-bottom: 24px; font-size: 29px; font-weight: 500; }
-.business-filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
-.business-filters button { padding: 8px 15px; border: 1px solid var(--line); border-radius: 3px; background: #fff; color: #111; font: inherit; font-size: 13px; cursor: pointer; }
-.business-filters button:hover, .business-filters button.active { border-color: #111; background: #111; color: #fff; }
+.business-filters, .route-filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+.route-filters { margin-top: 28px; }
+.business-filters button, .route-filters button { padding: 8px 15px; border: 1px solid var(--line); border-radius: 3px; background: #fff; color: #111; font: inherit; font-size: 13px; cursor: pointer; }
+.business-filters button:hover, .business-filters button.active, .route-filters button:hover, .route-filters button.active { border-color: #111; background: #111; color: #fff; }
+
+.route-description { margin: 10px 0 14px; color: var(--muted); font-size: 14px; line-height: 1.45; }
+.route-details { margin-bottom: 8px; font-size: 14px; }
+.route-difficulty { width: fit-content; margin-bottom: 12px; padding: 5px 9px; border: 1px solid var(--line); border-radius: 3px; font-size: 12px; }
+.route-start { margin-bottom: 0; color: var(--muted); font-size: 14px; line-height: 1.35; }
+
+.points-map { width: 100%; height: min(620px, 65vh); min-height: 420px; margin-top: 28px; border-radius: 3px; }
+.point-popup { display: grid; gap: 5px; min-width: 180px; }
+.point-popup img { width: 100%; max-height: 110px; margin-bottom: 4px; border-radius: 2px; object-fit: cover; }
+.point-popup strong { font-size: 15px; }
+.point-popup span { color: var(--muted); font-size: 12px; }
+.point-popup p { margin: 4px 0 0; line-height: 1.4; }
+.point-popup-link { width: fit-content; margin-top: 4px; padding-bottom: 1px; border-bottom: 1px solid var(--line); font-size: 12px; }
+.point-popup a:hover { border-bottom-color: #111; }
+.points-section { margin-top: 46px; }
+.points-section > h2 { margin-bottom: 24px; }
+.point-category { margin-bottom: 10px; color: var(--muted); font-size: 13px; }
+.point-description { margin-bottom: 12px; color: var(--muted); font-size: 14px; line-height: 1.45; }
+.point-address { margin-bottom: 0; color: var(--muted); font-size: 14px; line-height: 1.35; }
+
+.info-content { max-width: 900px; }
+.info-content > h1 { margin-bottom: 38px; font-size: 38px; font-weight: 500; }
+.about-image { display: block; width: 100%; max-height: 480px; margin-bottom: 48px; border-radius: 3px; object-fit: cover; }
+.info-content section { max-width: 720px; margin-bottom: 38px; }
+.info-content section:last-child { margin-bottom: 0; }
+.info-content h2 { margin-bottom: 14px; font-size: 25px; font-weight: 500; }
+.info-content p { color: var(--muted); font-size: 15px; line-height: 1.65; }
+.compact-info-content { min-height: 420px; }
+.contact-email { display: inline-block; margin: 8px 0 18px; padding-bottom: 3px; border-bottom: 1px solid #111; font-size: 17px; }
+.placeholder-note { font-size: 12px !important; }
+.legal-content strong { color: #111; }
+
+.business-detail-container { max-width: 900px; }
+.back-link { display: inline-block; margin-bottom: 30px; color: var(--muted); font-size: 13px; }
+.back-link:hover { color: #111; }
+.business-detail-image { display: block; width: 100%; max-height: 520px; margin-bottom: 32px; border-radius: 3px; object-fit: cover; }
+.business-detail-category { margin-bottom: 8px; color: var(--muted); font-size: 13px; }
+.business-detail h1 { margin-bottom: 24px; font-size: 38px; font-weight: 500; }
+.business-detail-description { max-width: 720px; margin-bottom: 40px; color: var(--muted); font-size: 15px; line-height: 1.65; white-space: pre-line; }
+.business-information { max-width: 720px; padding-top: 28px; border-top: 1px solid var(--line); }
+.business-information h2 { margin-bottom: 22px; font-size: 25px; font-weight: 500; }
+.business-information dl { display: grid; grid-template-columns: 110px 1fr; gap: 13px 24px; margin: 0; font-size: 14px; line-height: 1.45; }
+.business-information dt { color: var(--muted); }
+.business-information dd { margin: 0; overflow-wrap: anywhere; }
+.business-information a { border-bottom: 1px solid var(--line); }
 
 .site-footer { width: min(1180px, calc(100% - 96px)); min-height: 105px; margin: 28px auto 0; border-top: 1px solid var(--line); display: flex; justify-content: center; align-items: center; }
 .footer-links { display: flex; align-items: center; gap: 23px; font-size: 12px; }
@@ -116,5 +168,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .continuation-section { padding-top: 8px; }
   .agenda-section h1 { margin-bottom: 30px; font-size: 32px; }
   .agenda-section h2 { font-size: 25px; }
+  .info-content > h1 { margin-bottom: 30px; font-size: 32px; }
+  .about-image { margin-bottom: 36px; }
+  .info-content h2 { font-size: 23px; }
+  .business-detail h1 { font-size: 32px; }
+  .business-information dl { grid-template-columns: 1fr; gap: 5px; }
+  .business-information dd { margin-bottom: 10px; }
+  .points-map { height: 60vh; min-height: 360px; margin-top: 22px; }
   .site-footer { margin-top: 15px; }
 }

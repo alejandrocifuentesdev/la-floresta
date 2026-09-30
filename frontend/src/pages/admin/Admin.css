@@ -1,0 +1,59 @@
+.admin-page {
+  width: min(760px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 40px 0;
+  line-height: 1.5;
+}
+
+.admin-page h1 { font-size: 32px; font-weight: 500; }
+.admin-page h2 { font-size: 25px; font-weight: 500; }
+.admin-page section + section { margin-top: 40px; }
+.admin-page fieldset {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0 0 20px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--soft);
+}
+.admin-page label { margin-bottom: 6px; }
+.admin-page input, .admin-page textarea, .admin-page select {
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+}
+.admin-page textarea { resize: vertical; }
+.admin-page button {
+  align-self: flex-start;
+  padding: 12px 18px;
+  border: 1px solid #111;
+  border-radius: 3px;
+  background: #111;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+.admin-page button:disabled { opacity: .6; cursor: wait; }
+.admin-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.admin-list .admin-actions { margin-top: 12px; }
+.admin-page .admin-secondary { background: #fff; color: #111; border-color: var(--line); }
+.admin-page select:focus-visible, .admin-page input:focus-visible, .admin-page textarea:focus-visible, .admin-page button:focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 3px;
+}
+.admin-error { color: #a12020; }
+.admin-list { margin: 0; padding: 0; list-style: none; }
+.admin-list li { padding: 20px 0; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+.admin-list h3 { margin-bottom: 8px; font-size: 19px; }
+.admin-list p { margin-bottom: 4px; color: var(--muted); }
+
+.admin-back-link { display: inline-block; margin-bottom: 24px; text-decoration: underline; }
+.admin-dashboard-links a { display: block; padding: 8px 0; text-decoration: underline; }

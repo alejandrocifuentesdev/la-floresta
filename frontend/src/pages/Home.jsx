@@ -103,35 +103,23 @@ export default function Home() {
             renderItem={(event) => <EventCard event={event} key={event.id} />} />
         </section>
 
-        <section className="explore-section" id="explora">
-          <div className="section explore-inner">
-            <h2>Explora La Floresta</h2>
-            <div className="explore-grid">
-              {exploreLinks.map((item) => (
-                <a className="explore-card" href={item.href} key={item.title}>
-                  <ExploreIcon type={item.icon} />
-                  <span><strong>{item.title}</strong><small>{item.text}</small></span>
-                  <span className="arrow">→</span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
 
         <section className="section" id="comercos-i-serveis">
           <SectionHeading title="Comerços i serveis destacats" linkText="Veure tots els negocis" href="/comercos" />
           <SectionContent items={businesses} error={errors.businesses} className="card-grid business-grid"
-            renderItem={(business) => <BusinessCard business={business} key={business.id} />} />
+            renderItem={(business) => (
+              <BusinessCard business={business} key={business.id} to={`/comercos/${business.id}`} />
+            )} />
         </section>
 
         <section className="section continuation-section" id="llocs">
-          <SectionHeading title="Llocs d’interès" linkText="Veure el mapa" href="#llocs" />
+          <SectionHeading title="Llocs d’interès" linkText="Veure el mapa" href="/mapa" />
           <SectionContent items={interests} error={errors.interests} className="card-grid business-grid"
             renderItem={(place) => <BusinessCard business={place} key={place.id} />} />
         </section>
 
         <section className="section continuation-section" id="rutes">
-          <SectionHeading title="Rutes" linkText="Veure totes les rutes" href="#rutes" />
+          <SectionHeading title="Rutes" linkText="Veure totes les rutes" href="/rutes" />
           <SectionContent items={routes} error={errors.routes} className="card-grid business-grid"
             renderItem={(route) => <BusinessCard business={route} key={route.id} />} />
         </section>

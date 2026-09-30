@@ -4,10 +4,10 @@ import { Link, NavLink } from 'react-router-dom'
 const links = [
   { label: 'Inici', to: '/', end: true },
   { label: 'Agenda', to: '/agenda' },
-  { label: 'Mapa', href: '#llocs' },
+  { label: 'Mapa', to: '/mapa' },
   { label: 'Comerços i serveis', to: '/comercos' },
-  { label: 'Rutes', href: '#rutes' },
-  { label: 'Sobre La Floresta', href: '#footer' },
+  { label: 'Rutes', to: '/rutes' },
+  { label: 'Sobre La Floresta', to: '/sobre-la-floresta' },
 ]
 
 function BoarLogo() {
