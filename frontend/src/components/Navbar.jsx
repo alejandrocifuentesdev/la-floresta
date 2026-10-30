@@ -6,7 +6,6 @@ const links = [
   { label: 'Agenda', to: '/agenda' },
   { label: 'Mapa', to: '/mapa' },
   { label: 'Comerços i serveis', to: '/comercos' },
-  { label: 'Rutes', to: '/rutes' },
   { label: 'Sobre La Floresta', to: '/sobre-la-floresta' },
 ]
 

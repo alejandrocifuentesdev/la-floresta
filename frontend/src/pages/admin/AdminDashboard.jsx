@@ -28,7 +28,6 @@ export default function AdminDashboard() {
           <li><Link to="/admin/activitats">Activitats</Link></li>
           <li><Link to="/admin/comercos">Comerços</Link></li>
           <li><Link to="/admin/llocs">Llocs d'interès</Link></li>
-          <li><Link to="/admin/rutes">Rutes</Link></li>
         </ul>
       </nav>
       <button className="admin-secondary" disabled={submitting} onClick={handleLogout}>Tancar sessió</button>

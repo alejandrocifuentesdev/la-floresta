@@ -4,7 +4,6 @@ import AdminEvents from './pages/admin/AdminEvents.jsx'
 import AdminDashboard from './pages/admin/AdminDashboard.jsx'
 import AdminBusinesses from './pages/admin/AdminBusinesses.jsx'
 import AdminPointsOfInterest from './pages/admin/AdminPointsOfInterest.jsx'
-import AdminRoutes from './pages/admin/AdminRoutes.jsx'
 import About from './pages/About.jsx'
 import Businesses from './pages/Businesses.jsx'
 import BusinessDetail from './pages/BusinessDetail.jsx'
@@ -15,7 +14,6 @@ import LegalNotice from './pages/LegalNotice.jsx'
 import Map from './pages/Map.jsx'
 import Privacy from './pages/Privacy.jsx'
 import PointOfInterestDetail from './pages/PointOfInterestDetail.jsx'
-import PublicRoutes from './pages/Routes.jsx'
 
 import AdminLogin from './pages/admin/AdminLogin.jsx'
 import ProtectedAdminRoute from './pages/admin/ProtectedAdminRoute.jsx'
@@ -30,7 +28,6 @@ export default function App() {
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/comercos" element={<AdminBusinesses />} />
           <Route path="/admin/llocs" element={<AdminPointsOfInterest />} />
-          <Route path="/admin/rutes" element={<AdminRoutes />} />
         </Route>
         <Route path="/" element={<Home />} />
         <Route path="/agenda" element={<Agenda />} />
@@ -42,7 +39,6 @@ export default function App() {
         <Route path="/mapa" element={<Map />} />
         <Route path="/llocs/:id" element={<PointOfInterestDetail />} />
         <Route path="/privacitat" element={<Privacy />} />
-        <Route path="/rutes" element={<PublicRoutes />} />
         <Route path="/sobre-la-floresta" element={<About />} />
       </Routes>
     </BrowserRouter>

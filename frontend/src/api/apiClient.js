@@ -58,18 +58,6 @@ export const api = {
   }),
   deletePointOfInterest: (id) => request(`/api/points-of-interest/${encodeURIComponent(id)}`, { method: 'DELETE' }),
   getPointOfInterestById: (id) => get(`/api/points-of-interest/${encodeURIComponent(id)}`),
-  getRoutes: () => get('/api/routes'),
-  createRoute: (data) => request('/api/routes', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
-  }),
-  updateRoute: (id, data) => request(`/api/routes/${encodeURIComponent(id)}`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
-  }),
-  deleteRoute: (id) => request(`/api/routes/${encodeURIComponent(id)}`, { method: 'DELETE' }),
 }
 
 export function login(username, password) {

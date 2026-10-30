@@ -32,11 +32,11 @@ class AdminSecurityTests {
     // Endpoints de prueba: verifican los filtros sin modificar datos reales.
     @RestController
     static class TestApi {
-        @RequestMapping(value = {"/api/events", "/api/businesses", "/api/points-of-interest", "/api/routes"},
+        @RequestMapping(value = {"/api/events", "/api/businesses", "/api/points-of-interest"},
                 method = {RequestMethod.GET, RequestMethod.POST})
         String collection() { return "ok"; }
 
-        @RequestMapping(value = {"/api/events/1", "/api/businesses/1", "/api/points-of-interest/1", "/api/routes/1"},
+        @RequestMapping(value = {"/api/events/1", "/api/businesses/1", "/api/points-of-interest/1"},
                 method = {RequestMethod.PUT, RequestMethod.DELETE})
         String item() { return "ok"; }
     }
@@ -44,7 +44,7 @@ class AdminSecurityTests {
     @Autowired WebApplicationContext context;
     @Autowired FilterChainProxy security;
     MockMvc mvc;
-    String[] endpoints = {"/api/events", "/api/businesses", "/api/points-of-interest", "/api/routes"};
+    String[] endpoints = {"/api/events", "/api/businesses", "/api/points-of-interest""};
 
     @BeforeEach
     void setup() {

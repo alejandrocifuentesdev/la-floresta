@@ -39,9 +39,6 @@ class AdminCrudIntegrationTests {
                 """},
             {"/api/points-of-interest", "name", """
                 {"name":"Session test","description":"Temporary test","category":"PARK","address":"Test","latitude":41.4,"longitude":2.0}
-                """},
-            {"/api/routes", "name", """
-                {"name":"Session test","description":"Temporary test","distanceKm":2.0,"durationMinutes":30,"difficulty":"EASY","startLocation":"Test"}
                 """}
         };
 
