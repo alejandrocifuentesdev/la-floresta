@@ -38,7 +38,7 @@ export default function BusinessDetail() {
     content = (
       <article className="business-detail">
         {business.imageUrl && (
-          <img className="business-detail-image" src={business.imageUrl} alt={`Imatge de ${business.name}`} />
+          <img className="business-detail-image business-detail-commerce-image" src={business.imageUrl} alt={`Imatge de ${business.name}`} />
         )}
         <p className="business-detail-category">{categoryLabels[business.category] || 'Altres'}</p>
         <h1>{business.name}</h1>

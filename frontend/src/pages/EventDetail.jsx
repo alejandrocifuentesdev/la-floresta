@@ -33,7 +33,7 @@ export default function EventDetail() {
     content = (
       <article className="business-detail">
         {event.imageUrl && (
-          <img className="business-detail-image" src={event.imageUrl} alt={`Imatge de ${event.title}`} />
+          <img className="business-detail-image business-detail-commerce-image" src={event.imageUrl} alt={`Imatge de ${event.title}`} />
         )}
         {event.date && <p className="business-detail-category">{formatDate(event.date)}</p>}
         <h1>{event.title}</h1>

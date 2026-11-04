@@ -13,7 +13,6 @@ export default function Contact() {
           <p>Tens alguna proposta, correcció o informació sobre La Floresta?</p>
           <p>Pots posar-te en contacte per correu electrònic:</p>
           <a className="contact-email" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-          <p className="placeholder-note">Adreça provisional: cal substituir-la abans de publicar.</p>
         </article>
       </main>
       <Footer />

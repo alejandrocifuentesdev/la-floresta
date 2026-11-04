@@ -27,7 +27,7 @@ export default function PointOfInterestDetail() {
     content = (
       <article className="business-detail">
         {point.imageUrl && (
-          <img className="business-detail-image" src={point.imageUrl} alt={`Imatge de ${point.name}`} />
+          <img className="business-detail-image business-detail-commerce-image" src={point.imageUrl} alt={`Imatge de ${point.name}`} />
         )}
         <p className="business-detail-category">{getPointOfInterestCategoryLabel(point.category)}</p>
         <h1>{point.name}</h1>

@@ -1,19 +1,76 @@
+
 :root {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Manrope', sans-serif;
   color: #111;
-  background: #fff;
-  font-synthesis: none;
+    background: #f3f0e8;
+    font-synthesis: none;
   --muted: #6d6d6d;
   --line: #dedede;
   --soft: #f5f5f5;
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; min-width: 320px; background: #fff; }
-a { color: inherit; text-decoration: none; }
-h1, h2, h3, p { margin-top: 0; }
-button, a { -webkit-tap-highlight-color: transparent; }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #fff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+textarea,
+select,
+.leaflet-container {
+  font-family: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+h1 {
+  font-size: 42px;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 27px;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 21px;
+  line-height: 1.25;
+}
+
+/* NAVBAR */
 
 .site-header {
   height: 68px;
@@ -27,14 +84,66 @@ button, a { -webkit-tap-highlight-color: transparent; }
   z-index: 10;
 }
 
-.brand { display: flex; align-items: center; gap: 13px; flex: none; }
-.brand strong { font-size: 24px; line-height: 1; font-weight: 500; }
-.boar-logo { width: 49px; height: 31px; color: #050505; }
-.main-nav { height: 100%; display: flex; align-items: stretch; gap: 34px; font-size: 13px; }
-.main-nav a { display: flex; align-items: center; padding-top: 2px; border-bottom: 2px solid transparent; white-space: nowrap; }
-.main-nav a:hover, .main-nav a.active { border-bottom-color: #111; }
-.menu-button { display: none; border: 0; background: transparent; padding: 8px; }
-.menu-button span { display: block; width: 24px; height: 2px; margin: 5px 0; background: #111; }
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: none;
+}
+
+.brand-name {
+  font-family: inherit;
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  line-height: 1;
+}
+
+.boar-logo {
+  width: 50px;
+  height: 34px;
+  object-fit: contain;
+  display: block;
+}
+
+.main-nav {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  gap: 34px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.main-nav a {
+  display: flex;
+  align-items: center;
+  padding-top: 2px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  border-bottom-color: #111;
+}
+
+.menu-button {
+  display: none;
+  border: 0;
+  background: transparent;
+  padding: 8px;
+}
+
+.menu-button span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 5px 0;
+  background: #111;
+}
+
+/* HERO */
 
 .hero {
   width: 100%;
@@ -42,15 +151,58 @@ button, a { -webkit-tap-highlight-color: transparent; }
   background: url('/images/la-floresta-landscape.png') center 53% / cover no-repeat;
 }
 
-.section { width: min(1180px, calc(100% - 96px)); margin: 0 auto; padding: 38px 0 44px; }
-.section-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
-.section-heading h2, .explore-inner > h2 { margin: 0; font-size: 29px; line-height: 1.15; font-weight: 500; letter-spacing: -.7px; }
-.text-link { font-size: 13px; white-space: nowrap; }
-.text-link span { margin-left: 10px; font-size: 18px; }
+/* SECCIONES */
 
-.card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 31px; }
-.event-card, .business-card, .point-card { min-width: 0; }
-.card-image, .business-image, .point-image {
+.section {
+  width: min(1180px, calc(100% - 96px));
+  margin: 0 auto;
+  padding: 38px 0 44px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.section-heading h2,
+.explore-inner > h2 {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+}
+
+.text-link {
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.text-link span {
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+/* TARJETAS */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 31px;
+}
+
+.event-card,
+.business-card,
+.point-card {
+  min-width: 0;
+}
+
+.card-image,
+.business-image,
+.point-image {
   width: 100%;
   aspect-ratio: 1.88 / 1;
   background-size: cover;
@@ -58,117 +210,605 @@ button, a { -webkit-tap-highlight-color: transparent; }
   background-repeat: no-repeat;
   border-radius: 3px;
 }
-.image-placeholder { background-color: var(--soft); }
 
-.event-content, .business-content, .point-content { padding-top: 12px; }
-.card-meta { margin-bottom: 7px; color: var(--muted); font-size: 12px; text-transform: uppercase; }
-.event-card h3, .business-card h3, .point-card h3 { margin-bottom: 7px; font-size: 19px; line-height: 1.2; font-weight: 600; }
-.event-content > p:last-child, .business-content > p { color: var(--muted); font-size: 14px; line-height: 1.35; }
-.event-content > p:last-child { margin: 12px 0 0; }
-.location { display: flex; gap: 8px; margin: 0; color: #777; font-size: 11px; line-height: 1.3; }
-.location span { font-size: 14px; }
-.business-card-link, .point-card-link, .event-card-link { display: block; cursor: pointer; }
-.business-card-link .business-card, .point-card-link .point-card, .event-card-link .event-card { transition: transform .15s ease; }
-.business-card-link:hover .business-card, .business-card-link:focus-visible .business-card,
-.point-card-link:hover .point-card, .point-card-link:focus-visible .point-card,
-.event-card-link:hover .event-card, .event-card-link:focus-visible .event-card { transform: translateY(-3px); }
-.business-card-link:focus-visible, .point-card-link:focus-visible, .event-card-link:focus-visible { outline: 1px solid #111; outline-offset: 5px; }
-
-.explore-section { background: var(--soft); }
-.explore-inner { padding-top: 30px; padding-bottom: 31px; }
-.explore-inner > h2 { margin-bottom: 25px; }
-.explore-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-.explore-card { min-height: 84px; padding: 17px 18px; display: grid; grid-template-columns: 46px 1fr auto; align-items: center; gap: 12px; background: #fff; border-radius: 3px; }
-.explore-icon { width: 38px; height: 38px; fill: none; stroke: #111; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.explore-card strong, .explore-card small { display: block; }
-.explore-card strong { margin-bottom: 6px; font-size: 14px; font-weight: 500; }
-.explore-card small { color: var(--muted); font-size: 11px; }
-.explore-card .arrow { font-size: 19px; }
-.continuation-section { padding-top: 18px; }
-
-.agenda-section h1 { margin-bottom: 38px; font-size: 38px; font-weight: 500; }
-.agenda-section h2 { margin-bottom: 24px; font-size: 29px; font-weight: 500; }
-.business-filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
-.business-filters button { padding: 8px 15px; border: 1px solid var(--line); border-radius: 3px; background: #fff; color: #111; font: inherit; font-size: 13px; cursor: pointer; }
-.business-filters button:hover, .business-filters button.active { border-color: #111; background: #111; color: #fff; }
-
-
-.points-map { width: 100%; height: min(620px, 65vh); min-height: 420px; margin-top: 28px; border-radius: 3px; }
-.point-popup { display: grid; gap: 5px; min-width: 180px; }
-.point-popup img { width: 100%; max-height: 110px; margin-bottom: 4px; border-radius: 2px; object-fit: cover; }
-.point-popup strong { font-size: 15px; }
-.point-popup span { color: var(--muted); font-size: 12px; }
-.point-popup p { margin: 4px 0 0; line-height: 1.4; }
-.point-popup-link { width: fit-content; margin-top: 4px; padding-bottom: 1px; border-bottom: 1px solid var(--line); font-size: 12px; }
-.point-popup a:hover { border-bottom-color: #111; }
-.points-section { margin-top: 46px; }
-.points-section > h2 { margin-bottom: 24px; }
-.point-category { margin-bottom: 10px; color: var(--muted); font-size: 13px; }
-.point-description { margin-bottom: 12px; color: var(--muted); font-size: 14px; line-height: 1.45; }
-.point-address { margin-bottom: 0; color: var(--muted); font-size: 14px; line-height: 1.35; }
-
-.info-content { max-width: 900px; }
-.info-content > h1 { margin-bottom: 38px; font-size: 38px; font-weight: 500; }
-.about-image { display: block; width: 100%; max-height: 480px; margin-bottom: 48px; border-radius: 3px; object-fit: cover; }
-.info-content section { max-width: 720px; margin-bottom: 38px; }
-.info-content section:last-child { margin-bottom: 0; }
-.info-content h2 { margin-bottom: 14px; font-size: 25px; font-weight: 500; }
-.info-content p { color: var(--muted); font-size: 15px; line-height: 1.65; }
-.compact-info-content { min-height: 420px; }
-.contact-email { display: inline-block; margin: 8px 0 18px; padding-bottom: 3px; border-bottom: 1px solid #111; font-size: 17px; }
-.placeholder-note { font-size: 12px !important; }
-.legal-content strong { color: #111; }
-
-.business-detail-container { max-width: 900px; }
-.back-link { display: inline-block; margin-bottom: 30px; color: var(--muted); font-size: 13px; }
-.back-link:hover { color: #111; }
-.business-detail-image { display: block; width: 100%; max-height: 520px; margin-bottom: 32px; border-radius: 3px; object-fit: cover; }
-.business-detail-category { margin-bottom: 8px; color: var(--muted); font-size: 13px; }
-.business-detail h1 { margin-bottom: 24px; font-size: 38px; font-weight: 500; }
-.business-detail-description { max-width: 720px; margin-bottom: 40px; color: var(--muted); font-size: 15px; line-height: 1.65; white-space: pre-line; }
-.business-information { max-width: 720px; padding-top: 28px; border-top: 1px solid var(--line); }
-.business-information h2 { margin-bottom: 22px; font-size: 25px; font-weight: 500; }
-.business-information dl { display: grid; grid-template-columns: 110px 1fr; gap: 13px 24px; margin: 0; font-size: 14px; line-height: 1.45; }
-.business-information dt { color: var(--muted); }
-.business-information dd { margin: 0; overflow-wrap: anywhere; }
-.business-information a { border-bottom: 1px solid var(--line); }
-
-.site-footer { width: min(1180px, calc(100% - 96px)); min-height: 105px; margin: 28px auto 0; border-top: 1px solid var(--line); display: flex; justify-content: center; align-items: center; }
-.footer-links { display: flex; align-items: center; gap: 23px; font-size: 12px; }
-.footer-links span { color: #777; }
-
-@media (max-width: 900px) {
-  .site-header { padding-inline: 28px; }
-  .menu-button { display: block; margin-left: auto; }
-  .main-nav { display: none; position: absolute; top: 68px; left: 0; right: 0; height: auto; padding: 14px 28px 22px; background: #fff; flex-direction: column; align-items: flex-start; gap: 2px; box-shadow: 0 10px 18px rgba(0,0,0,.08); }
-  .main-nav.is-open { display: flex; }
-  .main-nav a { padding: 10px 0 6px; }
-  .explore-grid { grid-template-columns: repeat(2, 1fr); }
+.image-placeholder {
+  background-color: var(--soft);
 }
 
+.event-content,
+.business-content,
+.point-content {
+  padding-top: 12px;
+}
+
+.card-meta {
+  margin-bottom: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.event-card h3,
+.business-card h3,
+.point-card h3 {
+  margin-bottom: 7px;
+  font-size: 21px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.event-content > p:last-child,
+.business-content > p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.event-content > p:last-child {
+  margin: 12px 0 0;
+}
+
+.location {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  color: #777;
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.location span {
+  font-size: 14px;
+}
+
+.business-card-link,
+.point-card-link,
+.event-card-link {
+  display: block;
+  cursor: pointer;
+}
+
+.business-card-link .business-card,
+.point-card-link .point-card,
+.event-card-link .event-card {
+  transition: transform 0.15s ease;
+}
+
+.business-card-link:hover .business-card,
+.business-card-link:focus-visible .business-card,
+.point-card-link:hover .point-card,
+.point-card-link:focus-visible .point-card,
+.event-card-link:hover .event-card,
+.event-card-link:focus-visible .event-card {
+  transform: translateY(-3px);
+}
+
+.business-card-link:focus-visible,
+.point-card-link:focus-visible,
+.event-card-link:focus-visible {
+  outline: 1px solid #111;
+  outline-offset: 5px;
+}
+
+/* EXPLORAR */
+
+.explore-section {
+  background: var(--soft);
+}
+
+.explore-inner {
+  padding-top: 30px;
+  padding-bottom: 31px;
+}
+
+.explore-inner > h2 {
+  margin-bottom: 25px;
+}
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.explore-card {
+  min-height: 84px;
+  padding: 17px 18px;
+  display: grid;
+  grid-template-columns: 46px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border-radius: 3px;
+}
+
+.explore-icon {
+  width: 38px;
+  height: 38px;
+  fill: none;
+  stroke: #111;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.explore-card strong,
+.explore-card small {
+  display: block;
+}
+
+.explore-card strong {
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.explore-card small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.explore-card .arrow {
+  font-size: 19px;
+}
+
+.continuation-section {
+  padding-top: 18px;
+}
+
+/* AGENDA Y COMERCIOS */
+
+.agenda-section h1 {
+  margin-bottom: 38px;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.agenda-section h2 {
+  margin-bottom: 24px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.business-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.business-filters button {
+  padding: 8px 15px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #fff;
+  color: #111;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.business-filters button:hover,
+.business-filters button.active {
+  border-color: #111;
+  background: #111;
+  color: #fff;
+}
+
+/* MAPA */
+
+.points-map {
+  width: 100%;
+  height: min(620px, 65vh);
+  min-height: 420px;
+  margin-top: 28px;
+  border-radius: 3px;
+}
+
+.point-popup {
+  display: grid;
+  gap: 5px;
+  min-width: 180px;
+}
+
+.point-popup img {
+  width: 100%;
+  max-height: 110px;
+  margin-bottom: 4px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.point-popup strong {
+  font-size: 15px;
+}
+
+.point-popup span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.point-popup p {
+  margin: 4px 0 0;
+  line-height: 1.4;
+}
+
+.point-popup-link {
+  width: fit-content;
+  margin-top: 4px;
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+}
+
+.point-popup a:hover {
+  border-bottom-color: #111;
+}
+
+.points-section {
+  margin-top: 46px;
+}
+
+.points-section > h2 {
+  margin-bottom: 24px;
+}
+
+.point-category {
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.point-description {
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.point-address {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+/* PÁGINAS DE INFORMACIÓN */
+
+.info-content {
+  max-width: 900px;
+}
+
+.info-content > h1 {
+  margin-bottom: 38px;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.about-image {
+  display: block;
+  width: 100%;
+  max-height: 480px;
+  margin-bottom: 48px;
+  border-radius: 3px;
+  object-fit: cover;
+}
+
+.info-content section {
+  max-width: 720px;
+  margin-bottom: 38px;
+}
+
+.info-content section:last-child {
+  margin-bottom: 0;
+}
+
+.info-content h2 {
+  margin-bottom: 14px;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.info-content p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.compact-info-content {
+  min-height: 420px;
+}
+
+.contact-email {
+  display: inline-block;
+  margin: 8px 0 18px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #111;
+  font-size: 17px;
+}
+
+.placeholder-note {
+  font-size: 12px !important;
+}
+
+.legal-content strong {
+  color: #111;
+}
+
+/* DETALLE DE COMERCIOS Y PUNTOS */
+
+.business-detail-container {
+  max-width: 900px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 30px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.back-link:hover {
+  color: #111;
+}
+
+.business-detail-image {
+  display: block;
+  width: 100%;
+  max-height: 520px;
+  margin-bottom: 32px;
+  border-radius: 3px;
+  object-fit: cover;
+}
+
+.business-detail-commerce-image {
+  max-height: 400px;
+  object-position: center;
+}
+
+.business-detail-category {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.business-detail h1 {
+  margin-bottom: 24px;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.business-detail-description {
+  max-width: 720px;
+  margin-bottom: 40px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+  white-space: pre-line;
+}
+
+.business-information {
+  max-width: 720px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.business-information h2 {
+  margin-bottom: 22px;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.business-information dl {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 13px 24px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.business-information dt {
+  color: var(--muted);
+}
+
+.business-information dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.business-information a {
+  border-bottom: 1px solid var(--line);
+}
+
+/* FOOTER */
+
+.site-footer {
+  width: min(1180px, calc(100% - 96px));
+  min-height: 105px;
+  margin: 28px auto 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  font-size: 12px;
+}
+
+.footer-links span {
+  color: #777;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .site-header {
+    padding-inline: 28px;
+  }
+
+  .menu-button {
+    display: block;
+    margin-left: auto;
+  }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    height: auto;
+    padding: 14px 28px 22px;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+  }
+
+  .main-nav.is-open {
+    display: flex;
+  }
+
+  .main-nav a {
+    padding: 10px 0 6px;
+  }
+
+  .explore-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* MÓVIL */
+
 @media (max-width: 680px) {
-  .site-header { height: 62px; padding-inline: 18px; }
-  .brand strong { font-size: 21px; }
-  .boar-logo { width: 42px; }
-  .main-nav { top: 62px; }
-  .hero { height: 300px; background-position: center; }
-  .section, .site-footer { width: calc(100% - 36px); }
-  .section { padding: 32px 0 36px; }
-  .section-heading { align-items: flex-end; margin-bottom: 20px; }
-  .section-heading h2, .explore-inner > h2 { font-size: 25px; }
-  .text-link { font-size: 12px; text-align: right; }
-  .card-grid, .explore-grid { grid-template-columns: 1fr; gap: 28px; }
-  .explore-grid { gap: 10px; }
-  .explore-card { min-height: 78px; }
-  .continuation-section { padding-top: 8px; }
-  .agenda-section h1 { margin-bottom: 30px; font-size: 32px; }
-  .agenda-section h2 { font-size: 25px; }
-  .info-content > h1 { margin-bottom: 30px; font-size: 32px; }
-  .about-image { margin-bottom: 36px; }
-  .info-content h2 { font-size: 23px; }
-  .business-detail h1 { font-size: 32px; }
-  .business-information dl { grid-template-columns: 1fr; gap: 5px; }
-  .business-information dd { margin-bottom: 10px; }
-  .points-map { height: 60vh; min-height: 360px; margin-top: 22px; }
-  .site-footer { margin-top: 15px; }
+  h1 {
+    font-size: 34px;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  h3,
+  .event-card h3,
+  .business-card h3,
+  .point-card h3 {
+    font-size: 20px;
+  }
+
+  .site-header {
+    height: 62px;
+    padding-inline: 18px;
+  }
+
+  .brand-name {
+    font-size: 23px;
+  }
+
+  .boar-logo {
+    width: 43px;
+    height: 29px;
+  }
+
+  .main-nav {
+    top: 62px;
+  }
+
+  .hero {
+    height: 300px;
+    background-position: center;
+  }
+
+  .section,
+  .site-footer {
+    width: calc(100% - 36px);
+  }
+
+  .section {
+    padding: 32px 0 36px;
+  }
+
+  .section-heading {
+    align-items: flex-end;
+    margin-bottom: 20px;
+  }
+
+  .section-heading h2,
+  .explore-inner > h2 {
+    font-size: 27px;
+  }
+
+  .text-link {
+    font-size: 12px;
+    text-align: right;
+  }
+
+  .card-grid,
+  .explore-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .explore-grid {
+    gap: 10px;
+  }
+
+  .explore-card {
+    min-height: 78px;
+  }
+
+  .continuation-section {
+    padding-top: 8px;
+  }
+
+  .agenda-section h1 {
+    margin-bottom: 30px;
+    font-size: 34px;
+  }
+
+  .agenda-section h2 {
+    font-size: 27px;
+  }
+
+  .info-content > h1 {
+    margin-bottom: 30px;
+    font-size: 34px;
+  }
+
+  .about-image {
+    margin-bottom: 36px;
+  }
+
+  .info-content h2 {
+    font-size: 23px;
+  }
+
+  .business-detail h1 {
+    font-size: 34px;
+  }
+
+  .business-information dl {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .business-information dd {
+    margin-bottom: 10px;
+  }
+
+  .points-map {
+    height: 60vh;
+    min-height: 360px;
+    margin-top: 22px;
+  }
+
+  .site-footer {
+    margin-top: 15px;
+  }
 }
