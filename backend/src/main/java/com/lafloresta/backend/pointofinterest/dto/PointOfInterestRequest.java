@@ -35,4 +35,5 @@ public class PointOfInterestRequest {
     private Double longitude;
 
     private String imageUrl;
+    private Boolean featured;
 }

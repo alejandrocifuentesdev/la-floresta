@@ -1,5 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Agenda from './pages/Agenda.jsx'
+import CoursesWorkshops from './pages/CoursesWorkshops.jsx'
+import CourseWorkshopDetail from './pages/CourseWorkshopDetail.jsx'
+import AdminCoursesWorkshops from './pages/admin/AdminCoursesWorkshops.jsx'
 import AdminEvents from './pages/admin/AdminEvents.jsx'
 import AdminDashboard from './pages/admin/AdminDashboard.jsx'
 import AdminBusinesses from './pages/admin/AdminBusinesses.jsx'
@@ -24,6 +27,7 @@ export default function App() {
       <Routes>
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route element={<ProtectedAdminRoute />}>
+          <Route path="/admin/cursos-tallers" element={<AdminCoursesWorkshops />} />
           <Route path="/admin/activitats" element={<AdminEvents />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/comercos" element={<AdminBusinesses />} />
@@ -31,6 +35,8 @@ export default function App() {
         </Route>
         <Route path="/" element={<Home />} />
         <Route path="/agenda" element={<Agenda />} />
+        <Route path="/cursos-tallers" element={<CoursesWorkshops />} />
+        <Route path="/cursos-tallers/:id" element={<CourseWorkshopDetail />} />
         <Route path="/agenda/:id" element={<EventDetail />} />
         <Route path="/avis-legal" element={<LegalNotice />} />
         <Route path="/comercos" element={<Businesses />} />

@@ -5,6 +5,7 @@ import { Link, NavLink } from 'react-router-dom'
 const links = [
   { label: 'Inici', to: '/', end: true },
   { label: 'Agenda', to: '/agenda' },
+  { label: 'Cursos i tallers', to: '/cursos-tallers' },
   { label: 'Mapa', to: '/mapa' },
   { label: 'Comerços i serveis', to: '/comercos' },
   { label: 'Sobre La Floresta', to: '/sobre-la-floresta' },

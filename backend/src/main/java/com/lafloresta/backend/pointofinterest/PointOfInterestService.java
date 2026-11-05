@@ -3,6 +3,8 @@ package com.lafloresta.backend.pointofinterest;
 import com.lafloresta.backend.pointofinterest.dto.PointOfInterestRequest;
 import com.lafloresta.backend.pointofinterest.dto.PointOfInterestResponse;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import com.lafloresta.backend.featured.FeaturedLimitException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +51,10 @@ public class PointOfInterestService {
         return responses;
     }
 
+    @Transactional
     public PointOfInterestResponse createPointOfInterest(PointOfInterestRequest request) {
+
+        pointOfInterestRepository.lockForFeaturedUpdate();
 
         PointOfInterest pointOfInterest = new PointOfInterest();
 
@@ -60,9 +65,12 @@ public class PointOfInterestService {
         return toResponse(savedPointOfInterest);
     }
 
+    @Transactional
     public PointOfInterestResponse updatePointOfInterest(
             Long id,
             PointOfInterestRequest request) {
+
+        pointOfInterestRepository.lockForFeaturedUpdate();
 
         PointOfInterest pointOfInterest = getPointOfInterestEntityById(id);
 
@@ -73,11 +81,37 @@ public class PointOfInterestService {
         return toResponse(savedPointOfInterest);
     }
 
+    @Transactional
     public void deletePointOfInterest(Long id) {
+
+        pointOfInterestRepository.lockForFeaturedUpdate();
 
         PointOfInterest pointOfInterest = getPointOfInterestEntityById(id);
 
         pointOfInterestRepository.delete(pointOfInterest);
+    }
+
+    public List<PointOfInterestResponse> getFeaturedPointsOfInterest() {
+        List<PointOfInterestResponse> responses = new ArrayList<>();
+        for (PointOfInterest pointOfInterest : pointOfInterestRepository.findByFeaturedTrueOrderByIdAsc()) {
+            responses.add(toResponse(pointOfInterest));
+        }
+        return responses;
+    }
+
+    @Transactional
+    public PointOfInterestResponse updateFeatured(Long id, boolean featured) {
+        pointOfInterestRepository.lockForFeaturedUpdate();
+        PointOfInterest pointOfInterest = getPointOfInterestEntityById(id);
+        applyFeatured(pointOfInterest, featured);
+        return toResponse(pointOfInterestRepository.save(pointOfInterest));
+    }
+
+    private void applyFeatured(PointOfInterest pointOfInterest, boolean featured) {
+        if (featured && !pointOfInterest.isFeatured() && pointOfInterestRepository.countByFeaturedTrue() >= 3) {
+            throw new FeaturedLimitException();
+        }
+        pointOfInterest.setFeatured(featured);
     }
 
     private PointOfInterest getPointOfInterestEntityById(Long id) {
@@ -97,6 +131,9 @@ public class PointOfInterestService {
         pointOfInterest.setLatitude(request.getLatitude());
         pointOfInterest.setLongitude(request.getLongitude());
         pointOfInterest.setImageUrl(request.getImageUrl());
+        if (request.getFeatured() != null) {
+            applyFeatured(pointOfInterest, request.getFeatured());
+        }
     }
 
     private PointOfInterestResponse toResponse(PointOfInterest pointOfInterest) {
@@ -109,7 +146,8 @@ public class PointOfInterestService {
                 pointOfInterest.getAddress(),
                 pointOfInterest.getLatitude(),
                 pointOfInterest.getLongitude(),
-                pointOfInterest.getImageUrl()
+                pointOfInterest.getImageUrl(),
+                pointOfInterest.isFeatured()
         );
     }
 }

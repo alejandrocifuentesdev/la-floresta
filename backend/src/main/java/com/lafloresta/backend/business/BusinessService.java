@@ -3,6 +3,8 @@ package com.lafloresta.backend.business;
 import com.lafloresta.backend.business.dto.BusinessRequest;
 import com.lafloresta.backend.business.dto.BusinessResponse;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import com.lafloresta.backend.featured.FeaturedLimitException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +49,10 @@ public class BusinessService {
         return responses;
     }
 
+    @Transactional
     public BusinessResponse createBusiness(BusinessRequest request) {
+
+        businessRepository.lockForFeaturedUpdate();
 
         Business business = new Business();
 
@@ -58,7 +63,10 @@ public class BusinessService {
         return toResponse(savedBusiness);
     }
 
+    @Transactional
     public BusinessResponse updateBusiness(Long id, BusinessRequest request) {
+
+        businessRepository.lockForFeaturedUpdate();
 
         Business business = getBusinessEntityById(id);
 
@@ -69,11 +77,37 @@ public class BusinessService {
         return toResponse(savedBusiness);
     }
 
+    @Transactional
     public void deleteBusiness(Long id) {
+
+        businessRepository.lockForFeaturedUpdate();
 
         Business business = getBusinessEntityById(id);
 
         businessRepository.delete(business);
+    }
+
+    public List<BusinessResponse> getFeaturedBusinesses() {
+        List<BusinessResponse> responses = new ArrayList<>();
+        for (Business business : businessRepository.findByFeaturedTrueOrderByIdAsc()) {
+            responses.add(toResponse(business));
+        }
+        return responses;
+    }
+
+    @Transactional
+    public BusinessResponse updateFeatured(Long id, boolean featured) {
+        businessRepository.lockForFeaturedUpdate();
+        Business business = getBusinessEntityById(id);
+        applyFeatured(business, featured);
+        return toResponse(businessRepository.save(business));
+    }
+
+    private void applyFeatured(Business business, boolean featured) {
+        if (featured && !business.isFeatured() && businessRepository.countByFeaturedTrue() >= 3) {
+            throw new FeaturedLimitException();
+        }
+        business.setFeatured(featured);
     }
 
     private Business getBusinessEntityById(Long id) {
@@ -91,6 +125,9 @@ public class BusinessService {
         business.setPhone(request.getPhone());
         business.setWebsite(request.getWebsite());
         business.setImageUrl(request.getImageUrl());
+        if (request.getFeatured() != null) {
+            applyFeatured(business, request.getFeatured());
+        }
     }
 
     private BusinessResponse toResponse(Business business) {
@@ -103,7 +140,8 @@ public class BusinessService {
                 business.getAddress(),
                 business.getPhone(),
                 business.getWebsite(),
-                business.getImageUrl()
+                business.getImageUrl(),
+                business.isFeatured()
         );
     }
 }

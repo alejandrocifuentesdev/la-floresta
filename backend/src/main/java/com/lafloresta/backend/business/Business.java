@@ -1,5 +1,6 @@
 package com.lafloresta.backend.business;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -40,4 +41,7 @@ public class Business {
     private String phone;
     private String website;
     private String imageUrl;
+
+    @Column(nullable = false, columnDefinition = "boolean default false")
+    private boolean featured = false;
 }

@@ -26,6 +26,7 @@ export default function AdminDashboard() {
       <nav aria-label="Seccions d'administració">
         <ul className="admin-list admin-dashboard-links">
           <li><Link to="/admin/activitats">Activitats</Link></li>
+          <li><Link to="/admin/cursos-tallers">Cursos i tallers</Link></li>
           <li><Link to="/admin/comercos">Comerços</Link></li>
           <li><Link to="/admin/llocs">Llocs d'interès</Link></li>
         </ul>

@@ -16,4 +16,5 @@ public class PointOfInterestResponse {
     private Double latitude;
     private Double longitude;
     private String imageUrl;
+    private boolean featured;
 }

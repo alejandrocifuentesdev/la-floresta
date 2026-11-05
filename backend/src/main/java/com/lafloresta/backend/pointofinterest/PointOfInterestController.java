@@ -3,6 +3,7 @@ package com.lafloresta.backend.pointofinterest;
 import com.lafloresta.backend.pointofinterest.dto.PointOfInterestRequest;
 import com.lafloresta.backend.pointofinterest.dto.PointOfInterestResponse;
 import jakarta.validation.Valid;
+import com.lafloresta.backend.featured.FeaturedRequest;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,16 @@ public class PointOfInterestController {
     @GetMapping
     public List<PointOfInterestResponse> getAllPointsOfInterest() {
         return pointOfInterestService.getAllPointsOfInterest();
+    }
+
+    @GetMapping("/featured")
+    public List<PointOfInterestResponse> getFeaturedPointsOfInterest() {
+        return pointOfInterestService.getFeaturedPointsOfInterest();
+    }
+
+    @PutMapping("/{id}/featured")
+    public PointOfInterestResponse updateFeatured(@PathVariable Long id, @Valid @RequestBody FeaturedRequest request) {
+        return pointOfInterestService.updateFeatured(id, request.getFeatured());
     }
 
     @GetMapping("/{id}")

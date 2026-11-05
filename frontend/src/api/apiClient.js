@@ -18,6 +18,19 @@ function get(endpoint) {
 }
 
 export const api = {
+  getCoursesWorkshops: () => get('/api/courses-workshops'),
+  getCourseWorkshopById: (id) => get(`/api/courses-workshops/${encodeURIComponent(id)}`),
+  createCourseWorkshop: (data) => request('/api/courses-workshops', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  }),
+  updateCourseWorkshop: (id, data) => request(`/api/courses-workshops/${encodeURIComponent(id)}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  }),
+  deleteCourseWorkshop: (id) => request(`/api/courses-workshops/${encodeURIComponent(id)}`, { method: 'DELETE' }),
   getEvents: () => get('/api/events'),
   createEvent: (event) => request('/api/events', {
     method: 'POST',
@@ -33,6 +46,12 @@ export const api = {
   getUpcomingEvents: () => get('/api/events/upcoming'),
   getEventById: (id) => get(`/api/events/${encodeURIComponent(id)}`),
   getBusinesses: () => get('/api/businesses'),
+  getFeaturedBusinesses: () => get('/api/businesses/featured'),
+  updateBusinessFeatured: (id, featured) => request(`/api/businesses/${encodeURIComponent(id)}/featured`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ featured }),
+  }),
   createBusiness: (data) => request('/api/businesses', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -46,6 +65,12 @@ export const api = {
   deleteBusiness: (id) => request(`/api/businesses/${encodeURIComponent(id)}`, { method: 'DELETE' }),
   getBusinessById: (id) => get(`/api/businesses/${encodeURIComponent(id)}`),
   getPointsOfInterest: () => get('/api/points-of-interest'),
+  getFeaturedPointsOfInterest: () => get('/api/points-of-interest/featured'),
+  updatePointOfInterestFeatured: (id, featured) => request(`/api/points-of-interest/${encodeURIComponent(id)}/featured`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ featured }),
+  }),
   createPointOfInterest: (data) => request('/api/points-of-interest', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

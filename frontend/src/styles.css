@@ -211,8 +211,24 @@ h3 {
   border-radius: 3px;
 }
 
+.event-card .card-image {
+  aspect-ratio: 3 / 4;
+}
+
 .image-placeholder {
   background-color: var(--soft);
+}
+
+.event-card .course-workshop-image {
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+}
+
+.event-card .course-workshop-image-vertical {
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
 }
 
 .event-content,
@@ -561,9 +577,60 @@ h3 {
   object-fit: cover;
 }
 
-.business-detail-commerce-image {
-  max-height: 400px;
+.detail-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(100%, 560px);
+  max-height: 420px;
+  margin: 0 auto;
+  border-radius: 3px;
+  object-fit: cover;
   object-position: center;
+}
+
+.detail-image-vertical {
+  max-width: min(100%, 400px);
+  max-height: 560px;
+  object-fit: contain;
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 32px;
+}
+
+.detail-content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.detail-content .business-information {
+  padding-top: 16px;
+  margin-bottom: 20px;
+}
+
+.detail-content .business-detail-description,
+.business-detail .detail-content h1,
+.detail-content .business-information h2 {
+  margin-bottom: 20px;
+}
+
+.detail-content > :last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 901px) {
+  .detail-layout-with-image {
+    grid-template-columns: minmax(0, 560px) minmax(0, 1fr);
+    gap: 44px;
+  }
+
+  .detail-layout-with-image.detail-layout-vertical {
+    grid-template-columns: minmax(0, 400px) minmax(0, 1fr);
+  }
 }
 
 .business-detail-category {
@@ -646,7 +713,7 @@ h3 {
 
 /* TABLET */
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .site-header {
     padding-inline: 28px;
   }
@@ -679,6 +746,9 @@ h3 {
     padding: 10px 0 6px;
   }
 
+}
+
+@media (max-width: 900px) {
   .explore-grid {
     grid-template-columns: repeat(2, 1fr);
   }

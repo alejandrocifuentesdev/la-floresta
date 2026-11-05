@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { api } from '../api/apiClient.js'
 import BusinessCard from '../components/BusinessCard.jsx'
 import EventCard from '../components/EventCard.jsx'
+import CourseWorkshopCard from '../components/CourseWorkshopCard.jsx'
+import { formatCourseWorkshop } from '../utils/courseWorkshops.js'
 import Footer from '../components/Footer.jsx'
 import Navbar from '../components/Navbar.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
@@ -55,6 +57,7 @@ function ExploreIcon({ type }) {
 
 export default function Home() {
   const [events, setEvents] = useState(null)
+  const [coursesWorkshops, setCoursesWorkshops] = useState(null)
   const [businesses, setBusinesses] = useState(null)
   const [interests, setInterests] = useState(null)
   const [errors, setErrors] = useState({})
@@ -70,8 +73,9 @@ export default function Home() {
     }
 
     loadSection('events', api.getUpcomingEvents, setEvents, formatEvent)
-    loadSection('businesses', api.getBusinesses, setBusinesses, formatBusiness)
-    loadSection('interests', api.getPointsOfInterest, setInterests, formatPointOfInterest)
+    loadSection('coursesWorkshops', api.getCoursesWorkshops, setCoursesWorkshops, formatCourseWorkshop)
+    loadSection('businesses', api.getFeaturedBusinesses, setBusinesses, formatBusiness)
+    loadSection('interests', api.getFeaturedPointsOfInterest, setInterests, formatPointOfInterest)
   }, [])
 
   return (
@@ -86,6 +90,12 @@ export default function Home() {
             renderItem={(event) => <EventCard event={event} key={event.id} />} />
         </section>
 
+
+        <section className="section" id="cursos-tallers">
+          <SectionHeading title="Cursos i tallers" linkText="Veure tots els cursos i tallers" href="/cursos-tallers" />
+          <SectionContent items={coursesWorkshops} error={errors.coursesWorkshops} className="card-grid events-grid"
+            renderItem={(courseWorkshop) => <CourseWorkshopCard courseWorkshop={courseWorkshop} key={courseWorkshop.id} />} />
+        </section>
 
         <section className="section" id="comercos-i-serveis">
           <SectionHeading title="Comerços i serveis destacats" linkText="Veure tots els negocis" href="/comercos" />

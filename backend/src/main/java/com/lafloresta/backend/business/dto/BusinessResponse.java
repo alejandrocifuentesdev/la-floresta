@@ -16,4 +16,5 @@ public class BusinessResponse {
     private String phone;
     private String website;
     private String imageUrl;
+    private boolean featured;
 }

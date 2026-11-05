@@ -3,6 +3,7 @@ package com.lafloresta.backend.business;
 import com.lafloresta.backend.business.dto.BusinessRequest;
 import com.lafloresta.backend.business.dto.BusinessResponse;
 import jakarta.validation.Valid;
+import com.lafloresta.backend.featured.FeaturedRequest;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,16 @@ public class BusinessController {
     @GetMapping
     public List<BusinessResponse> getAllBusinesses() {
         return businessService.getAllBusinesses();
+    }
+
+    @GetMapping("/featured")
+    public List<BusinessResponse> getFeaturedBusinesses() {
+        return businessService.getFeaturedBusinesses();
+    }
+
+    @PutMapping("/{id}/featured")
+    public BusinessResponse updateFeatured(@PathVariable Long id, @Valid @RequestBody FeaturedRequest request) {
+        return businessService.updateFeatured(id, request.getFeatured());
     }
 
     @GetMapping("/{id}")

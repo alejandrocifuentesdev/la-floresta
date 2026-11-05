@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api } from '../../api/apiClient.js'
 import './Admin.css'
+import useFeaturedSelection from './useFeaturedSelection.js'
 
 const emptyForm = { name: '', description: '', category: '', address: '', latitude: '', longitude: '', imageUrl: '' }
 const categories = [
@@ -24,7 +25,11 @@ export default function AdminPointsOfInterest() {
   const [deletingId, setDeletingId] = useState(null)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
-  const busy = saving || deletingId !== null
+  const featured = useFeaturedSelection({
+    items, setItems, updateFeatured: api.updatePointOfInterestFeatured, loadItems,
+    busy: saving || deletingId !== null || loading || loadError,
+  })
+  const busy = saving || deletingId !== null || featured.changingId !== null
 
   async function loadItems() {
     setLoading(true)
@@ -181,6 +186,11 @@ export default function AdminPointsOfInterest() {
 
       <section aria-labelledby="admin-list-heading" aria-busy={loading}>
         <h2 id="admin-list-heading">Llocs d'interès actuals</h2>
+        {!loading && !loadError && <p role="status">Seleccionats per a l'inici: {featured.count}/3</p>}
+        {!loading && !loadError && featured.count >= 3 && (
+          <p>Ja hi ha 3 seleccionats. Desmarca'n un abans de seleccionar-ne un altre.</p>
+        )}
+        {featured.error && <p className="admin-error" role="alert">{featured.error}</p>}
         {loading ? (
           <p role="status">Carregant llocs d'interès...</p>
         ) : loadError ? (
@@ -195,7 +205,14 @@ export default function AdminPointsOfInterest() {
                 <p>{categories.find(([value]) => value === item.category)?.[1] ?? item.category}</p>
                 <p>{item.address}</p>
                 <p>{item.latitude}, {item.longitude}</p>
+                {item.featured && <p><strong>Seleccionat per a l'inici</strong></p>}
                 <div className="admin-actions">
+                  <button type="button" className="admin-secondary"
+                    aria-pressed={Boolean(item.featured)}
+                    disabled={busy || (!item.featured && featured.count >= 3)}
+                    onClick={() => featured.toggle(item)}>
+                    {featured.changingId === item.id ? 'Desant...' : item.featured ? "Treure de l'inici" : "Mostrar a l'inici"}
+                  </button>
                   <button type="button" className="admin-secondary" disabled={busy} onClick={() => startEditing(item)}>Editar</button>
                   <button type="button" className="admin-secondary" disabled={busy} onClick={() => handleDelete(item.id)}>
                     {deletingId === item.id ? 'Eliminant...' : 'Eliminar'}

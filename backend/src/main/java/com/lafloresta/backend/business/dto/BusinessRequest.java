@@ -25,4 +25,5 @@ public class BusinessRequest {
     private String phone;
     private String website;
     private String imageUrl;
+    private Boolean featured;
 }

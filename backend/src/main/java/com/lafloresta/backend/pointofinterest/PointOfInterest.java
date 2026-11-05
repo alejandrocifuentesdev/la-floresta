@@ -1,5 +1,6 @@
 package com.lafloresta.backend.pointofinterest;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -44,4 +45,7 @@ public class PointOfInterest {
     private Double longitude;
 
     private String imageUrl;
+
+    @Column(nullable = false, columnDefinition = "boolean default false")
+    private boolean featured = false;
 }
