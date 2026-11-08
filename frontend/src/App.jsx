@@ -15,6 +15,7 @@ import EventDetail from './pages/EventDetail.jsx'
 import Home from './pages/Home.jsx'
 import LegalNotice from './pages/LegalNotice.jsx'
 import Map from './pages/Map.jsx'
+import NotFound from './pages/NotFound.jsx'
 import Privacy from './pages/Privacy.jsx'
 import PointOfInterestDetail from './pages/PointOfInterestDetail.jsx'
 
@@ -46,6 +47,7 @@ export default function App() {
         <Route path="/llocs/:id" element={<PointOfInterestDetail />} />
         <Route path="/privacitat" element={<Privacy />} />
         <Route path="/sobre-la-floresta" element={<About />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )
