@@ -22,12 +22,10 @@ export default function Navbar() {
         aria-label="La Floresta, inici"
         onClick={() => setMenuOpen(false)}
       >
-        <strong className="brand-name">La Floresta</strong>
-
         <img
-          src="/images/boar-logo.png"
-          alt=""
-          className="boar-logo"
+          src="/images/logo-la-floresta.png"
+          alt="La Floresta"
+          className="brand-logo"
         />
       </Link>
 

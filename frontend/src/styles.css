@@ -73,7 +73,7 @@ h3 {
 /* NAVBAR */
 
 .site-header {
-  height: 68px;
+  height: 96px;
   padding: 0 max(48px, calc((100vw - 1180px) / 2));
   display: flex;
   align-items: center;
@@ -91,17 +91,10 @@ h3 {
   flex: none;
 }
 
-.brand-name {
-  font-family: inherit;
-  font-size: 27px;
-  font-weight: 800;
-  letter-spacing: -0.6px;
-  line-height: 1;
-}
-
-.boar-logo {
-  width: 50px;
-  height: 34px;
+.brand-logo {
+  width: auto;
+  height: 70px;
+  max-width: 220px;
   object-fit: contain;
   display: block;
 }
@@ -111,8 +104,9 @@ h3 {
   display: flex;
   align-items: stretch;
   gap: 34px;
+  font-family: "Manrope", sans-serif;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .main-nav a {
@@ -125,7 +119,10 @@ h3 {
 
 .main-nav a:hover,
 .main-nav a.active {
-  border-bottom-color: #111;
+  text-decoration-line: underline;
+  text-decoration-color: #111;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
 }
 
 .menu-button {
@@ -356,7 +353,7 @@ h3 {
 .explore-card strong {
   margin-bottom: 6px;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .explore-card small {
@@ -437,6 +434,7 @@ h3 {
 
 .point-popup strong {
   font-size: 15px;
+  font-weight: 400;
 }
 
 .point-popup span {
@@ -726,7 +724,7 @@ h3 {
   .main-nav {
     display: none;
     position: absolute;
-    top: 68px;
+    top: 100%;
     left: 0;
     right: 0;
     height: auto;
@@ -773,21 +771,13 @@ h3 {
   }
 
   .site-header {
-    height: 62px;
+    height: 84px;
     padding-inline: 18px;
   }
 
-  .brand-name {
-    font-size: 23px;
-  }
-
-  .boar-logo {
-    width: 43px;
-    height: 29px;
-  }
-
-  .main-nav {
-    top: 62px;
+  .brand-logo {
+    height: 64px;
+    max-width: min(220px, calc(100vw - 108px));
   }
 
   .hero {
