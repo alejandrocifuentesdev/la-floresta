@@ -21,6 +21,9 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @Configuration
 public class SecurityConfig {
 
+    @Value("${FRONTEND_URL:}")
+    private String frontendUrl;
+
     @Value("${ADMIN_USERNAME}")
     private String adminUsername;
 
@@ -71,7 +74,12 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of(
                 "http://localhost:5173",
-                "https://la-floresta-tawny.vercel.app"));
+                "https://la-floresta-tawny.vercel.app",
+                "https://laflorestapearson.cat",
+                "https://www.laflorestapearson.cat"));
+        if (frontendUrl != null && !frontendUrl.isBlank()) {
+            configuration.addAllowedOrigin(frontendUrl.trim());
+        }
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("Content-Type", "X-XSRF-TOKEN", "Accept"));
         configuration.setAllowCredentials(true);
