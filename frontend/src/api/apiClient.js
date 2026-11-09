@@ -64,6 +64,19 @@ export const api = {
   }),
   deleteBusiness: (id) => request(`/api/businesses/${encodeURIComponent(id)}`, { method: 'DELETE' }),
   getBusinessById: (id) => get(`/api/businesses/${encodeURIComponent(id)}`),
+  getProfessionals: () => get('/api/professionals'),
+  getProfessionalById: (id) => get(`/api/professionals/${encodeURIComponent(id)}`),
+  createProfessional: (data) => request('/api/professionals', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  }),
+  updateProfessional: (id, data) => request(`/api/professionals/${encodeURIComponent(id)}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  }),
+  deleteProfessional: (id) => request(`/api/professionals/${encodeURIComponent(id)}`, { method: 'DELETE' }),
   getPointsOfInterest: () => get('/api/points-of-interest'),
   getFeaturedPointsOfInterest: () => get('/api/points-of-interest/featured'),
   updatePointOfInterestFeatured: (id, featured) => request(`/api/points-of-interest/${encodeURIComponent(id)}/featured`, {

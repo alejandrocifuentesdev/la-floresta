@@ -28,6 +28,7 @@ export default function AdminDashboard() {
           <li><Link to="/admin/activitats">Activitats</Link></li>
           <li><Link to="/admin/cursos-tallers">Cursos i tallers</Link></li>
           <li><Link to="/admin/comercos">Comerços</Link></li>
+          <li><Link to="/admin/professionals">Professionals locals</Link></li>
           <li><Link to="/admin/llocs">Llocs d'interès</Link></li>
         </ul>
       </nav>

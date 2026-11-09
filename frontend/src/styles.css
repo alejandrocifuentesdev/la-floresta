@@ -203,7 +203,8 @@ h3 {
 
 .event-card,
 .business-card,
-.point-card {
+.point-card,
+.professional-card {
   min-width: 0;
 }
 
@@ -220,6 +221,33 @@ h3 {
 
 .event-card .card-image {
   aspect-ratio: 3 / 4;
+}
+
+.professional-image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 3px;
+}
+
+.professional-content {
+  padding-top: 12px;
+}
+
+.professional-card h3 {
+  margin-bottom: 7px;
+  font-size: 21px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.professional-category {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.35;
 }
 
 .image-placeholder {
@@ -286,14 +314,16 @@ h3 {
 
 .business-card-link,
 .point-card-link,
-.event-card-link {
+.event-card-link,
+.professional-card-link {
   display: block;
   cursor: pointer;
 }
 
 .business-card-link .business-card,
 .point-card-link .point-card,
-.event-card-link .event-card {
+.event-card-link .event-card,
+.professional-card-link .professional-card {
   transition: transform 0.15s ease;
 }
 
@@ -302,13 +332,16 @@ h3 {
 .point-card-link:hover .point-card,
 .point-card-link:focus-visible .point-card,
 .event-card-link:hover .event-card,
-.event-card-link:focus-visible .event-card {
+.event-card-link:focus-visible .event-card,
+.professional-card-link:hover .professional-card,
+.professional-card-link:focus-visible .professional-card {
   transform: translateY(-3px);
 }
 
 .business-card-link:focus-visible,
 .point-card-link:focus-visible,
-.event-card-link:focus-visible {
+.event-card-link:focus-visible,
+.professional-card-link:focus-visible {
   outline: 1px solid #111;
   outline-offset: 5px;
 }
@@ -782,7 +815,8 @@ h3 {
   h3,
   .event-card h3,
   .business-card h3,
-  .point-card h3 {
+  .point-card h3,
+  .professional-card h3 {
     font-size: 20px;
   }
 

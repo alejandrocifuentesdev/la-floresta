@@ -8,6 +8,7 @@ const links = [
   { label: 'Cursos i tallers', to: '/cursos-tallers' },
   { label: 'Mapa', to: '/mapa' },
   { label: 'Comerços i serveis', to: '/comercos' },
+  { label: 'Professionals locals', to: '/professionals' },
   { label: 'Sobre La Floresta', to: '/sobre-la-floresta' },
 ]
 

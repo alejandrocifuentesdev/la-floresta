@@ -18,6 +18,9 @@ import Map from './pages/Map.jsx'
 import NotFound from './pages/NotFound.jsx'
 import Privacy from './pages/Privacy.jsx'
 import PointOfInterestDetail from './pages/PointOfInterestDetail.jsx'
+import Professionals from './pages/Professionals.jsx'
+import ProfessionalDetail from './pages/ProfessionalDetail.jsx'
+import AdminProfessionals from './pages/admin/AdminProfessionals.jsx'
 
 import AdminLogin from './pages/admin/AdminLogin.jsx'
 import ProtectedAdminRoute from './pages/admin/ProtectedAdminRoute.jsx'
@@ -33,6 +36,7 @@ export default function App() {
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/comercos" element={<AdminBusinesses />} />
           <Route path="/admin/llocs" element={<AdminPointsOfInterest />} />
+          <Route path="/admin/professionals" element={<AdminProfessionals />} />
         </Route>
         <Route path="/" element={<Home />} />
         <Route path="/agenda" element={<Agenda />} />
@@ -46,6 +50,8 @@ export default function App() {
         <Route path="/mapa" element={<Map />} />
         <Route path="/llocs/:id" element={<PointOfInterestDetail />} />
         <Route path="/privacitat" element={<Privacy />} />
+        <Route path="/professionals" element={<Professionals />} />
+        <Route path="/professionals/:id" element={<ProfessionalDetail />} />
         <Route path="/sobre-la-floresta" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

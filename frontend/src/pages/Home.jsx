@@ -7,6 +7,7 @@ import { formatCourseWorkshop } from '../utils/courseWorkshops.js'
 import Footer from '../components/Footer.jsx'
 import Navbar from '../components/Navbar.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
+import ProfessionalCard from '../components/ProfessionalCard.jsx'
 
 const exploreLinks = [
   { icon: 'calendar', title: 'Agenda', text: 'Activitats i esdeveniments', href: '#agenda' },
@@ -27,6 +28,24 @@ function formatBusiness(business) {
     ...business,
     category: business.category?.replaceAll('_', ' '),
     detail: business.address,
+  }
+}
+
+const professionalCategoryLabels = {
+  HEALTH: 'Salut',
+  WELLNESS: 'Benestar',
+  EDUCATION: 'Educació',
+  MUSIC: 'Música',
+  SPORTS: 'Esport',
+  CREATIVE: 'Creativitat',
+  HOME: 'Llar i reparacions',
+  OTHER: 'Altres',
+}
+
+function formatProfessional(professional) {
+  return {
+    ...professional,
+    categoryLabel: professionalCategoryLabels[professional.category] || 'Altres',
   }
 }
 
@@ -59,6 +78,7 @@ export default function Home() {
   const [events, setEvents] = useState(null)
   const [coursesWorkshops, setCoursesWorkshops] = useState(null)
   const [businesses, setBusinesses] = useState(null)
+  const [professionals, setProfessionals] = useState(null)
   const [interests, setInterests] = useState(null)
   const [errors, setErrors] = useState({})
 
@@ -75,6 +95,7 @@ export default function Home() {
     loadSection('events', api.getUpcomingEvents, setEvents, formatEvent)
     loadSection('coursesWorkshops', api.getCoursesWorkshops, setCoursesWorkshops, formatCourseWorkshop)
     loadSection('businesses', api.getFeaturedBusinesses, setBusinesses, formatBusiness)
+    loadSection('professionals', api.getProfessionals, setProfessionals, formatProfessional)
     loadSection('interests', api.getFeaturedPointsOfInterest, setInterests, formatPointOfInterest)
   }, [])
 
@@ -102,6 +123,14 @@ export default function Home() {
           <SectionContent items={businesses} error={errors.businesses} className="card-grid business-grid"
             renderItem={(business) => (
               <BusinessCard business={business} key={business.id} to={`/comercos/${business.id}`} />
+            )} />
+        </section>
+
+        <section className="section" id="professionals">
+          <SectionHeading title="Professionals locals" linkText="Veure tots els professionals" href="/professionals" />
+          <SectionContent items={professionals} error={errors.professionals} className="card-grid professional-grid"
+            renderItem={(professional) => (
+              <ProfessionalCard professional={professional} key={professional.id} to={`/professionals/${professional.id}`} />
             )} />
         </section>
 
