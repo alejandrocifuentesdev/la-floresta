@@ -127,7 +127,7 @@ export default function Home() {
         </section>
 
         <section className="section" id="professionals">
-          <SectionHeading title="Professionals locals" linkText="Veure tots els professionals" href="/professionals" />
+          <SectionHeading title={<><span style={{ whiteSpace: 'nowrap' }}>Professionals</span><br />locals</>} linkText="Veure tots els professionals" href="/professionals" />
           <SectionContent items={professionals} error={errors.professionals} className="card-grid professional-grid"
             renderItem={(professional) => (
               <ProfessionalCard professional={professional} key={professional.id} to={`/professionals/${professional.id}`} />
