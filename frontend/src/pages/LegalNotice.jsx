@@ -1,8 +1,8 @@
 import Footer from '../components/Footer.jsx'
 import Navbar from '../components/Navbar.jsx'
 
-const SITE_OWNER = '[NOM COMPLET DEL TITULAR — PENDENT DE COMPLETAR]'
-const OWNER_EMAIL = '[CORREU ELECTRÒNIC DEL TITULAR — PENDENT DE COMPLETAR]'
+const SITE_OWNER = 'Alejandro Cifuentes Batista'
+const OWNER_EMAIL = 'contactelafloresta@gmail.com'
 
 export default function LegalNotice() {
   return (

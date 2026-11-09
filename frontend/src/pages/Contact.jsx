@@ -1,7 +1,7 @@
 import Footer from '../components/Footer.jsx'
 import Navbar from '../components/Navbar.jsx'
 
-const CONTACT_EMAIL = 'contacte@la-floresta.example'
+const CONTACT_EMAIL = 'contactelafloresta@gmail.com'
 
 export default function Contact() {
   return (
