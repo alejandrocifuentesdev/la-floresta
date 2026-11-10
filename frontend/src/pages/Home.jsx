@@ -26,7 +26,7 @@ function formatEvent(event) {
 function formatBusiness(business) {
   return {
     ...business,
-    category: business.category?.replaceAll('_', ' '),
+    category: business.category,
     detail: business.address,
   }
 }
@@ -52,7 +52,7 @@ function formatProfessional(professional) {
 function formatPointOfInterest(point) {
   return {
     ...point,
-    category: point.category?.replaceAll('_', ' '),
+    category: point.category,
     detail: point.address,
   }
 }
@@ -135,7 +135,7 @@ export default function Home() {
         </section>
 
         <section className="section continuation-section" id="llocs">
-          <SectionHeading title="Llocs d’interès" linkText="Veure el mapa" href="/mapa" />
+          <SectionHeading title="Punt d’interès" linkText="Veure el mapa" href="/mapa" />
           <SectionContent items={interests} error={errors.interests} className="card-grid business-grid"
             renderItem={(place) => <BusinessCard business={place} key={place.id} />} />
         </section>
