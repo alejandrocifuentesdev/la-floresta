@@ -215,7 +215,8 @@ h3 {
   aspect-ratio: 3 / 4;
 }
 
-#agenda .event-card .card-image {
+#agenda .event-card .card-image,
+.agenda-page .event-card .card-image {
   width: 82%;
   max-width: 300px;
   margin-inline: auto;
@@ -860,7 +861,8 @@ h3 {
     max-width: min(220px, calc(100vw - 108px));
   }
 
-  #agenda .event-card .card-image {
+  #agenda .event-card .card-image,
+  .agenda-page .event-card .card-image {
     width: 72%;
     max-width: 260px;
   }

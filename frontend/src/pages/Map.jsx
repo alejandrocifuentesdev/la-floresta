@@ -44,9 +44,9 @@ export default function Map() {
   let content = <p>Carregant...</p>
 
   if (error) {
-    content = <p>No s'han pogut carregar els llocs d'interès.</p>
+    content = <p>No s'han pogut carregar els punts d'interès.</p>
   } else if (points?.length === 0) {
-    content = <p>Encara no hi ha llocs d'interès.</p>
+    content = <p>Encara no hi ha punts d'interès.</p>
   } else if (points) {
     content = (
       <MapContainer className="points-map" center={LA_FLORESTA_POSITION} zoom={15} scrollWheelZoom>
@@ -82,11 +82,11 @@ export default function Map() {
       <main className="map-page">
         <section className="section agenda-section">
           <h1>Mapa</h1>
-          <h2>Llocs d'interès de La Floresta</h2>
+          <h2>Punts d'interès de La Floresta</h2>
           {content}
           {points?.length > 0 && (
             <section className="points-section">
-              <h2>Llocs d'interès</h2>
+              <h2>Punts d'interès</h2>
               <div className="card-grid points-grid">
                 {points.map((point) => (
                   <PointOfInterestCard key={point.id} point={point} />
