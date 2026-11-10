@@ -102,7 +102,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="home-page">
         <section className="hero" id="inici" aria-label="Vista panoràmica de La Floresta" />
 
         <section className="section" id="agenda">

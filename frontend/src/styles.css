@@ -185,6 +185,15 @@ h3 {
   font-size: 18px;
 }
 
+
+.home-page > .section + .section {
+  border-top: 1px solid var(--line);
+}
+
+.home-page > .continuation-section {
+  padding-top: 38px;
+}
+
 /* TARJETAS */
 
 .card-grid {
@@ -923,6 +932,10 @@ h3 {
 
   .continuation-section {
     padding-top: 8px;
+  }
+
+  .home-page > .continuation-section {
+    padding-top: 32px;
   }
 
   .agenda-section h1 {
