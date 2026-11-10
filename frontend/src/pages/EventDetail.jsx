@@ -33,7 +33,7 @@ export default function EventDetail() {
     content = <p>No s'ha pogut carregar l'activitat.</p>
   } else if (event) {
     content = (
-      <article className={`business-detail detail-layout${event.imageUrl ? ` detail-layout-with-image detail-layout-${orientation}` : ''}`}>
+      <article className={`business-detail event-detail detail-layout${event.imageUrl ? ` detail-layout-with-image detail-layout-${orientation}` : ''}`}>
         {event.imageUrl && (
           <img key={event.imageUrl} className={`detail-image detail-image-${orientation}`} onLoad={onLoad} onError={onError} src={event.imageUrl} alt={`Imatge de ${event.title}`} />
         )}

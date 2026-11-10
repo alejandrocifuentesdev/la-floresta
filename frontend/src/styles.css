@@ -215,6 +215,13 @@ h3 {
   aspect-ratio: 3 / 4;
 }
 
+#agenda .event-card .card-image {
+  width: 82%;
+  max-width: 300px;
+  margin-inline: auto;
+}
+
+
 .professional-image {
   width: 100%;
   aspect-ratio: 3 / 4;
@@ -628,6 +635,17 @@ h3 {
   object-fit: contain;
 }
 
+.event-detail .detail-image {
+  max-width: min(88%, 500px);
+  max-height: 360px;
+}
+
+.event-detail .detail-image-vertical {
+  max-width: min(78%, 320px);
+  max-height: 450px;
+}
+
+
 .detail-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -841,6 +859,22 @@ h3 {
     height: 64px;
     max-width: min(220px, calc(100vw - 108px));
   }
+
+  #agenda .event-card .card-image {
+    width: 72%;
+    max-width: 260px;
+  }
+
+  .event-detail .detail-image {
+    max-width: 86%;
+    max-height: 320px;
+  }
+
+  .event-detail .detail-image-vertical {
+    max-width: min(74%, 280px);
+    max-height: 400px;
+  }
+
 
   .hero {
     height: 300px;
