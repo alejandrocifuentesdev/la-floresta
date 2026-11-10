@@ -146,8 +146,12 @@ h3 {
 
 .hero {
   width: 100%;
-  height: clamp(390px, 43vw, 515px);
-  background: url('/images/la-floresta-landscape.png') center 53% / cover no-repeat;
+}
+
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* SECCIONES */
@@ -886,11 +890,6 @@ h3 {
     max-height: 400px;
   }
 
-
-  .hero {
-    height: 300px;
-    background-position: center;
-  }
 
   .section,
   .site-footer {

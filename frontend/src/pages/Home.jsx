@@ -103,7 +103,15 @@ export default function Home() {
     <>
       <Navbar />
       <main className="home-page">
-        <section className="hero" id="inici" aria-label="Vista panoràmica de La Floresta" />
+        <section className="hero" id="inici" aria-label="La Floresta il·lustrada">
+          <img
+            src="/images/la-floresta-illustration.png"
+            alt="Il·lustració de La Floresta entre pins, amb el tren dels FGC, veïns, un gos, un senglar i una furgoneta càmper."
+            width="1536"
+            height="864"
+            fetchPriority="high"
+          />
+        </section>
 
         <section className="section" id="agenda">
           <SectionHeading title="Properes activitats" linkText="Veure tota l’agenda" href="/agenda" />
