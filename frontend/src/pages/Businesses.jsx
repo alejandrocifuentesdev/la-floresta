@@ -16,7 +16,7 @@ const filters = [
 function formatBusiness(business) {
   return {
     ...business,
-    category: business.category?.replaceAll('_', ' '),
+    category: business.category,
     detail: business.address,
   }
 }
