@@ -115,7 +115,7 @@ export default function Home() {
         <section className="section" id="cursos-tallers">
           <SectionHeading title="Cursos i tallers" linkText="Veure tots els cursos i tallers" href="/cursos-tallers" />
           <SectionContent items={coursesWorkshops} error={errors.coursesWorkshops} className="card-grid events-grid"
-            renderItem={(courseWorkshop) => <CourseWorkshopCard courseWorkshop={courseWorkshop} key={courseWorkshop.id} />} />
+            renderItem={(courseWorkshop) => <CourseWorkshopCard courseWorkshop={courseWorkshop} key={courseWorkshop.id} showDescription />} />
         </section>
 
         <section className="section" id="comercos-i-serveis">
