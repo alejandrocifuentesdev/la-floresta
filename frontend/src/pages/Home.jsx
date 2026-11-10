@@ -135,7 +135,7 @@ export default function Home() {
         </section>
 
         <section className="section continuation-section" id="llocs">
-          <SectionHeading title="Punt d’interès" linkText="Veure el mapa" href="/mapa" />
+          <SectionHeading title="Punts d’interès" linkText="Veure el mapa" href="/mapa" />
           <SectionContent items={interests} error={errors.interests} className="card-grid business-grid"
             renderItem={(place) => <BusinessCard business={place} key={place.id} />} />
         </section>
