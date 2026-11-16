@@ -10,23 +10,18 @@ export default function Privacy() {
           <h1>Privacitat</h1>
 
           <section>
-            <h2>Dades personals</h2>
-            <p>En el funcionament actual del projecte no hi ha comptes d'usuari, registre ni formulari de contacte. L'aplicació no pretén recollir ni emmagatzemar dades personals dels visitants.</p>
+            <h2>Dades personals i contacte</h2>
+            <p>La navegació pública no requereix registre. El responsable del tractament és Alejandro Cifuentes Batista (contactelafloresta@gmail.com). Les dades que ens facilitis per correu electrònic es tracten per gestionar les consultes i propostes, sobre la base de l'interès legítim a atendre-les, i es conserven durant el temps necessari per fer-ho i complir les obligacions legals aplicables.</p>
           </section>
 
           <section>
-            <h2>Analítica i seguiment</h2>
-            <p>No s'han implementat eines pròpies d'analítica o seguiment, ni cookies pròpies destinades a seguir l'activitat dels visitants.</p>
+            <h2>Serveis externs i cookies</h2>
+            <p>El lloc no incorpora eines pròpies de seguiment publicitari ni d'analítica. Els serveis d'allotjament, Google Fonts i OpenStreetMap poden tractar dades tècniques, com ara l'adreça IP, per prestar els seus serveis. El correu electrònic es gestiona mitjançant Gmail. Aquests proveïdors poden tractar dades fora de l'Espai Econòmic Europeu segons les seves condicions i garanties aplicables.</p>
           </section>
 
           <section>
-            <h2>Serveis tècnics externs</h2>
-            <p>Quan l'aplicació es desplegui, els serveis d'allotjament i els recursos externs utilitzats podran efectuar els tractaments tècnics necessaris per prestar el servei, d'acord amb les seves pròpies condicions i polítiques de privacitat.</p>
-          </section>
-
-          <section>
-            <h2>Canvis en el projecte</h2>
-            <p>Si en el futur s'incorporen funcionalitats que tractin dades personals, analítica o mecanismes de seguiment, aquesta informació s'haurà d'actualitzar abans de posar-les en funcionament.</p>
+            <h2>Drets</h2>
+            <p>Pots sol·licitar l'accés, la rectificació, la supressió, la limitació, l'oposició i, quan sigui aplicable, la portabilitat de les teves dades escrivint a contactelafloresta@gmail.com. També pots presentar una reclamació davant l'<a href="https://www.aepd.es/">Agència Espanyola de Protecció de Dades</a>.</p>
           </section>
         </article>
       </main>
