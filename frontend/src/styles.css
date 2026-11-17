@@ -222,15 +222,21 @@ h3 {
   border-radius: 3px;
 }
 
-.event-card .card-image {
+.event-card-image {
+  display: block;
   aspect-ratio: 3 / 4;
+  object-fit: contain;
+  margin-inline: auto;
 }
 
-#agenda .event-card .card-image,
-.agenda-page .event-card .card-image {
+.event-card-image-square {
+  aspect-ratio: 1;
+}
+
+#agenda .event-card-image:not(.event-card-image-square),
+.agenda-page .event-card-image:not(.event-card-image-square) {
   width: 82%;
   max-width: 300px;
-  margin-inline: auto;
 }
 
 
@@ -648,13 +654,9 @@ h3 {
 }
 
 .event-detail .detail-image {
-  max-width: min(88%, 500px);
-  max-height: 360px;
-}
-
-.event-detail .detail-image-vertical {
-  max-width: min(78%, 320px);
-  max-height: 450px;
+  width: 100%;
+  max-height: none;
+  object-fit: contain;
 }
 
 
@@ -872,22 +874,11 @@ h3 {
     max-width: min(220px, calc(100vw - 108px));
   }
 
-  #agenda .event-card .card-image,
-  .agenda-page .event-card .card-image {
+  #agenda .event-card-image:not(.event-card-image-square),
+  .agenda-page .event-card-image:not(.event-card-image-square) {
     width: 72%;
     max-width: 260px;
   }
-
-  .event-detail .detail-image {
-    max-width: 86%;
-    max-height: 320px;
-  }
-
-  .event-detail .detail-image-vertical {
-    max-width: min(74%, 280px);
-    max-height: 400px;
-  }
-
 
   .hero {
     height: 300px;

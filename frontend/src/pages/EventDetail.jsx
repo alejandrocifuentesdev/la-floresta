@@ -3,7 +3,6 @@ import { Link, useParams } from 'react-router-dom'
 import { api } from '../api/apiClient.js'
 import Footer from '../components/Footer.jsx'
 import Navbar from '../components/Navbar.jsx'
-import useCourseWorkshopImage from '../utils/useCourseWorkshopImage.js'
 
 function formatDate(value) {
   const date = new Date(`${value}T12:00:00`)
@@ -16,7 +15,6 @@ export default function EventDetail() {
   const { id } = useParams()
   const [event, setEvent] = useState(null)
   const [error, setError] = useState(false)
-  const { orientation, onLoad, onError } = useCourseWorkshopImage(event?.imageUrl)
 
   useEffect(() => {
     setEvent(null)
@@ -33,9 +31,9 @@ export default function EventDetail() {
     content = <p>No s'ha pogut carregar l'activitat.</p>
   } else if (event) {
     content = (
-      <article className={`business-detail event-detail detail-layout${event.imageUrl ? ` detail-layout-with-image detail-layout-${orientation}` : ''}`}>
+      <article className={`business-detail event-detail detail-layout${event.imageUrl ? ' detail-layout-with-image' : ''}`}>
         {event.imageUrl && (
-          <img key={event.imageUrl} className={`detail-image detail-image-${orientation}`} onLoad={onLoad} onError={onError} src={event.imageUrl} alt={`Imatge de ${event.title}`} />
+          <img className="detail-image" src={event.imageUrl} alt={`Imatge de ${event.title}`} />
         )}
         <div className="detail-content">
           {event.date && <p className="business-detail-category">{formatDate(event.date)}</p>}
