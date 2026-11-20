@@ -1,3 +1,4 @@
+import Seo from '../components/Seo.jsx'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { api } from '../api/apiClient.js'
@@ -18,7 +19,7 @@ export default function PointOfInterestDetail() {
 
     api.getPointOfInterestById(id)
       .then(setPoint)
-      .catch(() => setError(true))
+      .catch((error) => setError(error.status || 500))
   }, [id])
 
   let content = <p>Carregant...</p>
@@ -52,6 +53,12 @@ export default function PointOfInterestDetail() {
 
   return (
     <>
+      <Seo
+        noindex={error === 404}
+        title={String(point?.id) === id ? `${point.name} a La Floresta | Guia local` : undefined}
+        description={String(point?.id) === id ? point.description : undefined}
+        image={String(point?.id) === id ? point.imageUrl : undefined}
+      />
       <Navbar />
       <main className="business-detail-page">
         <div className="section business-detail-container">

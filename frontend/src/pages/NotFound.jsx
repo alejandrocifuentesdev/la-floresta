@@ -1,3 +1,4 @@
+import Seo from '../components/Seo.jsx'
 import { Link } from 'react-router-dom'
 import Footer from '../components/Footer.jsx'
 import Navbar from '../components/Navbar.jsx'
@@ -5,6 +6,7 @@ import Navbar from '../components/Navbar.jsx'
 export default function NotFound() {
   return (
     <>
+      <Seo noindex />
       <Navbar />
       <main className="info-page">
         <article className="section info-content compact-info-content">

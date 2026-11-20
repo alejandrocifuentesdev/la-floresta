@@ -1,3 +1,4 @@
+import Seo from './components/Seo.jsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Agenda from './pages/Agenda.jsx'
 import CoursesWorkshops from './pages/CoursesWorkshops.jsx'
@@ -29,8 +30,8 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route element={<ProtectedAdminRoute />}>
+        <Route path="/admin/login" element={<><Seo noindex /><AdminLogin /></>} />
+        <Route element={<><Seo noindex /><ProtectedAdminRoute /></>}>
           <Route path="/admin/cursos-tallers" element={<AdminCoursesWorkshops />} />
           <Route path="/admin/activitats" element={<AdminEvents />} />
           <Route path="/admin" element={<AdminDashboard />} />

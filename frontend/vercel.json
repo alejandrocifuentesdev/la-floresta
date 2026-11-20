@@ -1,12 +1,67 @@
 {
   "rewrites": [
     {
+      "source": "/sitemap.xml",
+      "destination": "/api/sitemap"
+    },
+    {
+      "source": "/api/sitemap",
+      "destination": "/api/sitemap"
+    },
+    {
       "source": "/api/:path*",
       "destination": "https://la-floresta-production.up.railway.app/api/:path*"
     },
     {
+      "source": "/agenda",
+      "destination": "/seo/agenda.html"
+    },
+    {
+      "source": "/cursos-tallers",
+      "destination": "/seo/cursos-tallers.html"
+    },
+    {
+      "source": "/comercos",
+      "destination": "/seo/comercos.html"
+    },
+    {
+      "source": "/professionals",
+      "destination": "/seo/professionals.html"
+    },
+    {
+      "source": "/mapa",
+      "destination": "/seo/mapa.html"
+    },
+    {
+      "source": "/sobre-la-floresta",
+      "destination": "/seo/sobre-la-floresta.html"
+    },
+    {
+      "source": "/contacte",
+      "destination": "/seo/contacte.html"
+    },
+    {
+      "source": "/avis-legal",
+      "destination": "/seo/avis-legal.html"
+    },
+    {
+      "source": "/privacitat",
+      "destination": "/seo/privacitat.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/admin/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
   ]
 }

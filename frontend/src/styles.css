@@ -196,6 +196,18 @@ h3 {
   padding-top: 38px;
 }
 
+.home-guide-title {
+  font-size: 32px;
+}
+
+.section-intro {
+  max-width: 780px;
+  margin-bottom: 32px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
 /* TARJETAS */
 
 .card-grid {

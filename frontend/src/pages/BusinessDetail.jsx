@@ -1,3 +1,4 @@
+import Seo from '../components/Seo.jsx'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { api } from '../api/apiClient.js'
@@ -29,7 +30,7 @@ export default function BusinessDetail() {
 
     api.getBusinessById(id)
       .then(setBusiness)
-      .catch(() => setError(true))
+      .catch((error) => setError(error.status || 500))
   }, [id])
 
   let content = <p>Carregant...</p>
@@ -66,6 +67,12 @@ export default function BusinessDetail() {
 
   return (
     <>
+      <Seo
+        noindex={error === 404}
+        title={String(business?.id) === id ? `${business.name} a La Floresta | Guia local` : undefined}
+        description={String(business?.id) === id ? business.description : undefined}
+        image={String(business?.id) === id ? business.imageUrl : undefined}
+      />
       <Navbar />
       <main className="business-detail-page">
         <div className="section business-detail-container">

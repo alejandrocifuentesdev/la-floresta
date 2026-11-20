@@ -1,9 +1,11 @@
+import Seo from '../components/Seo.jsx'
 import Footer from '../components/Footer.jsx'
 import Navbar from '../components/Navbar.jsx'
 
 export default function About() {
   return (
     <>
+      <Seo />
       <Navbar />
       <main className="info-page">
         <article className="section info-content">

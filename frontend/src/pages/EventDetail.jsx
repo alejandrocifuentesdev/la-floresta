@@ -1,3 +1,5 @@
+import { activityMetadata } from '../utils/seo.js'
+import Seo from '../components/Seo.jsx'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { api } from '../api/apiClient.js'
@@ -22,7 +24,7 @@ export default function EventDetail() {
 
     api.getEventById(id)
       .then(setEvent)
-      .catch(() => setError(true))
+      .catch((error) => setError(error.status || 500))
   }, [id])
 
   let content = <p>Carregant...</p>
@@ -56,6 +58,7 @@ export default function EventDetail() {
 
   return (
     <>
+      <Seo noindex={error === 404} {...activityMetadata(String(event?.id) === id ? event : null)} />
       <Navbar />
       <main className="business-detail-page">
         <div className="section business-detail-container">

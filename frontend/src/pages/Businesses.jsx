@@ -1,3 +1,4 @@
+import Seo from '../components/Seo.jsx'
 import { useEffect, useState } from 'react'
 import { api } from '../api/apiClient.js'
 import BusinessCard from '../components/BusinessCard.jsx'
@@ -57,6 +58,7 @@ export default function Businesses() {
 
   return (
     <>
+      <Seo />
       <Navbar />
       <main className="businesses-page">
         <section className="section agenda-section">

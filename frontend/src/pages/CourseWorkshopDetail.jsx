@@ -1,3 +1,5 @@
+import { activityMetadata } from '../utils/seo.js'
+import Seo from '../components/Seo.jsx'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { api } from '../api/apiClient.js'
@@ -19,7 +21,7 @@ export default function CourseWorkshopDetail() {
 
     api.getCourseWorkshopById(id)
       .then(setCourseWorkshop)
-      .catch(() => setError(true))
+      .catch((error) => setError(error.status || 500))
   }, [id])
 
   let content = <p>Carregant...</p>
@@ -66,6 +68,7 @@ export default function CourseWorkshopDetail() {
 
   return (
     <>
+      <Seo noindex={error === 404} {...activityMetadata(String(courseWorkshop?.id) === id ? courseWorkshop : null, 'EducationEvent')} />
       <Navbar />
       <main className="business-detail-page">
         <div className="section business-detail-container">

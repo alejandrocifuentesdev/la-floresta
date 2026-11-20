@@ -1,3 +1,4 @@
+import Seo from '../components/Seo.jsx'
 import { useEffect, useState } from 'react'
 import { Icon } from 'leaflet'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
@@ -78,6 +79,7 @@ export default function Map() {
 
   return (
     <>
+      <Seo />
       <Navbar />
       <main className="map-page">
         <section className="section agenda-section">

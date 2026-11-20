@@ -1,3 +1,4 @@
+import Seo from '../components/Seo.jsx'
 import { useEffect, useState } from 'react'
 import { api } from '../api/apiClient.js'
 import BusinessCard from '../components/BusinessCard.jsx'
@@ -101,11 +102,14 @@ export default function Home() {
 
   return (
     <>
+      <Seo />
       <Navbar />
       <main className="home-page">
         <section className="hero" id="inici" aria-label="Vista panoràmica de La Floresta" />
 
         <section className="section" id="agenda">
+          <h1 className="home-guide-title">Què fer a La Floresta</h1>
+          <p className="section-intro">La guia de La Floresta, Sant Cugat del Vallès, per descobrir concerts, festes, esdeveniments i activitats del barri. Consulta l’agenda, els cursos i tallers, i els comerços i serveis de proximitat.</p>
           <SectionHeading title="Properes activitats" linkText="Veure tota l’agenda" href="/agenda" />
           <SectionContent items={events} error={errors.events} className="card-grid events-grid"
             renderItem={(event) => <EventCard event={event} key={event.id} />} />

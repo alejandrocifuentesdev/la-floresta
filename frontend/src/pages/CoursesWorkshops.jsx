@@ -1,3 +1,4 @@
+import Seo from '../components/Seo.jsx'
 import { useEffect, useState } from 'react'
 import { api } from '../api/apiClient.js'
 import CourseWorkshopCard from '../components/CourseWorkshopCard.jsx'
@@ -35,10 +36,12 @@ export default function CoursesWorkshops() {
 
   return (
     <>
+      <Seo />
       <Navbar />
       <main className="agenda-page">
         <section className="section agenda-section">
-          <h1>Cursos i tallers</h1>
+          <h1>Cursos i tallers a La Floresta</h1>
+          <p className="section-intro">Descobreix propostes de dansa, art, moviment i altres activitats a La Floresta, Sant Cugat del Vallès. Consulta les dates, els espais i les dades d’inscripció de cada curs o taller.</p>
           {content}
         </section>
       </main>

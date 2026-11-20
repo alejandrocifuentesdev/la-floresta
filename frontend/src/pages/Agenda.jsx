@@ -1,3 +1,4 @@
+import Seo from '../components/Seo.jsx'
 import { useEffect, useState } from 'react'
 import { api } from '../api/apiClient.js'
 import EventCard from '../components/EventCard.jsx'
@@ -41,10 +42,12 @@ export default function Agenda() {
 
   return (
     <>
+      <Seo />
       <Navbar />
       <main className="agenda-page">
         <section className="section agenda-section">
-          <h1>Agenda</h1>
+          <h1>Agenda de La Floresta</h1>
+          <p className="section-intro">Concerts, festes, vermuts musicals i esdeveniments a La Floresta, Sant Cugat del Vallès. Consulta les properes activitats del barri i troba la data, el lloc i la informació de cada proposta.</p>
           <h2>Propers esdeveniments</h2>
           {content}
         </section>

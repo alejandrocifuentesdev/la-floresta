@@ -1,3 +1,4 @@
+import Seo from '../components/Seo.jsx'
 import Footer from '../components/Footer.jsx'
 import Navbar from '../components/Navbar.jsx'
 
@@ -6,6 +7,7 @@ const CONTACT_EMAIL = 'contactelafloresta@gmail.com'
 export default function Contact() {
   return (
     <>
+      <Seo />
       <Navbar />
       <main className="info-page">
         <article className="section info-content compact-info-content">
