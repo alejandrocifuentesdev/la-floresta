@@ -11,10 +11,11 @@
 
 .cookie-banner {
   position: fixed;
+  top: auto;
   bottom: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2000;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   width: min(720px, calc(100% - 28px));
   max-height: calc(100dvh - 36px);
   overflow-y: auto;
@@ -23,6 +24,15 @@
   border: 1px solid var(--line);
   border-radius: 6px;
   box-shadow: 0 4px 30px #0002;
+}
+
+.cookie-banner::backdrop {
+  background: #0005;
+}
+
+.cookie-banner .cookie-choice-status {
+  margin-top: 12px;
+  margin-bottom: 0;
 }
 
 .cookie-banner h2 {
@@ -75,6 +85,44 @@
 
 .cookie-settings:hover {
   text-decoration: underline;
+}
+
+.cookie-policy-settings {
+  margin-top: 12px;
+  padding: 10px 16px;
+  border: 1px solid #234b35;
+  border-radius: 3px;
+  background: #fff;
+  color: #234b35;
+  font: inherit;
+  cursor: pointer;
+}
+
+.cookie-policy-settings:hover {
+  background: #f1f5f2;
+}
+
+.cookie-table-wrapper {
+  overflow-x: auto;
+}
+
+.cookie-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.cookie-table th,
+.cookie-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+#cookies {
+  scroll-margin-top: 110px;
 }
 
 * {
@@ -847,6 +895,8 @@ h3 {
 
 .footer-links {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 23px;
   font-size: 12px;
@@ -854,6 +904,11 @@ h3 {
 
 .footer-links span {
   color: #777;
+}
+
+.footer-links a,
+.footer-links button {
+  white-space: nowrap;
 }
 
 /* TABLET */
@@ -1054,5 +1109,14 @@ h3 {
 
   .site-footer {
     margin-top: 15px;
+    padding-block: 24px;
+  }
+
+  .footer-links {
+    gap: 14px 20px;
+  }
+
+  .footer-links span {
+    display: none;
   }
 }

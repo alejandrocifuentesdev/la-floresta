@@ -1,4 +1,5 @@
 import AnalyticsConsent from './components/AnalyticsConsent.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx'
 import Seo from './components/Seo.jsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Agenda from './pages/Agenda.jsx'
@@ -30,6 +31,7 @@ import ProtectedAdminRoute from './pages/admin/ProtectedAdminRoute.jsx'
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <AnalyticsConsent>
         <Routes>
           <Route path="/admin/login" element={<><Seo noindex /><AdminLogin /></>} />

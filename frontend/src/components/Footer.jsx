@@ -9,8 +9,8 @@ export default function Footer() {
       <nav className="footer-links" aria-label="Enllaços legals">
         <Link to="/contacte">Contacte</Link><span aria-hidden="true">|</span>
         <Link to="/avis-legal">Avís legal</Link><span aria-hidden="true">|</span>
-        <Link to="/privacitat">Privacitat</Link><span aria-hidden="true">|</span>
-        <button type="button" className="cookie-settings" onClick={() => openCookieSettings(true)}>Cookies</button>
+        <Link to="/privacitat">Privacitat i cookies</Link><span aria-hidden="true">|</span>
+        <button type="button" className="cookie-settings" aria-haspopup="dialog" onClick={() => openCookieSettings(true)}>Configurar cookies</button>
       </nav>
     </footer>
   )

@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react'
+import { createContext, useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { CONSENT_KEY, clearAnalyticsCookies, disableAnalytics, enableAnalytics, readConsent, saveConsent } from '../utils/analytics.js'
 
@@ -9,6 +9,14 @@ export default function AnalyticsConsent({ children }) {
   const isAdmin = pathname === '/admin' || pathname.startsWith('/admin/')
   const [choice, setChoice] = useState(readConsent)
   const [showBanner, setShowBanner] = useState(!choice)
+  const bannerRef = useRef(null)
+
+  useEffect(() => {
+    const dialog = bannerRef.current
+    if (!showBanner || isAdmin || !dialog) return
+    dialog.showModal()
+    return () => dialog.close()
+  }, [showBanner, isAdmin])
 
   useEffect(() => {
     if (choice === 'accepted' && !isAdmin) enableAnalytics()
@@ -42,20 +50,26 @@ export default function AnalyticsConsent({ children }) {
     }
   }
 
+  function closeBanner() {
+    bannerRef.current?.close()
+    setShowBanner(false)
+  }
+
   return (
     <CookieSettingsContext.Provider value={setShowBanner}>
       {children}
       {showBanner && !isAdmin && (
-        <section className="cookie-banner" role="dialog" aria-labelledby="cookie-heading" aria-describedby="cookie-description">
+        <dialog ref={bannerRef} className="cookie-banner" aria-labelledby="cookie-heading" aria-describedby="cookie-description" onCancel={closeBanner}>
           <h2 id="cookie-heading">Cookies d’analítica</h2>
-          <p id="cookie-description">Amb el teu permís, fem servir Google Analytics per saber quantes persones visiten la web i quines pàgines consulten. Pots acceptar o rebutjar les cookies d’analítica i canviar la decisió a «Cookies», al peu de pàgina.</p>
-          <Link className="cookie-policy-link" to="/privacitat">Més informació sobre privacitat i cookies</Link>
+          <p id="cookie-description">Amb el teu permís, fem servir Google Analytics per saber quantes persones visiten la web i quines pàgines consulten. Pots acceptar o rebutjar les cookies d’analítica i canviar la decisió a «Configurar cookies», al peu de pàgina.</p>
+          <Link className="cookie-policy-link" to="/privacitat#cookies" onClick={closeBanner}>Més informació sobre privacitat i cookies</Link>
+          <p className="cookie-choice-status">{choice === 'accepted' ? 'Preferència actual: analítica activada.' : choice === 'rejected' ? 'Preferència actual: analítica desactivada.' : 'Si tanques aquest avís sense triar, l’analítica es manté desactivada.'}</p>
           <div className="cookie-actions">
             <button type="button" onClick={() => choose('rejected')}>Rebutjar</button>
             <button type="button" onClick={() => choose('accepted')}>Acceptar analítica</button>
-            {choice && <button type="button" onClick={() => setShowBanner(false)}>Tancar</button>}
+            <button type="button" onClick={closeBanner}>Tancar</button>
           </div>
-        </section>
+        </dialog>
       )}
     </CookieSettingsContext.Provider>
   )

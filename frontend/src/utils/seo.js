@@ -39,8 +39,8 @@ export const PAGE_METADATA = {
     description: 'Consulta l’avís legal i les condicions d’ús de la guia local de La Floresta.',
   },
   '/privacitat': {
-    title: 'Política de privacitat | Guia de La Floresta',
-    description: 'Consulta la política de privacitat de la guia local de La Floresta.',
+    title: 'Privacitat i cookies | Guia de La Floresta',
+    description: 'Consulta com es tracten les dades, quines cookies utilitza la guia de La Floresta i com pots acceptar o rebutjar l’analítica.',
   },
 }
 
