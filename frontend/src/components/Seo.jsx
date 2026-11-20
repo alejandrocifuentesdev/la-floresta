@@ -31,7 +31,8 @@ export default function Seo({ title, description, image, structuredData, noindex
       'name:twitter:image': pageImage,
     }
     for (const [key, content] of Object.entries(values)) {
-      const [attribute, value] = key.split(':')
+      const [attribute, ...name] = key.split(':')
+      const value = name.join(':')
       let tag = document.head.querySelector(`meta[${attribute}="${value}"]`)
       if (!tag) {
         tag = document.createElement('meta')
