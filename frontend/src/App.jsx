@@ -1,3 +1,4 @@
+import AnalyticsConsent from './components/AnalyticsConsent.jsx'
 import Seo from './components/Seo.jsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Agenda from './pages/Agenda.jsx'
@@ -29,33 +30,35 @@ import ProtectedAdminRoute from './pages/admin/ProtectedAdminRoute.jsx'
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/admin/login" element={<><Seo noindex /><AdminLogin /></>} />
-        <Route element={<><Seo noindex /><ProtectedAdminRoute /></>}>
-          <Route path="/admin/cursos-tallers" element={<AdminCoursesWorkshops />} />
-          <Route path="/admin/activitats" element={<AdminEvents />} />
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/admin/comercos" element={<AdminBusinesses />} />
-          <Route path="/admin/llocs" element={<AdminPointsOfInterest />} />
-          <Route path="/admin/professionals" element={<AdminProfessionals />} />
-        </Route>
-        <Route path="/" element={<Home />} />
-        <Route path="/agenda" element={<Agenda />} />
-        <Route path="/cursos-tallers" element={<CoursesWorkshops />} />
-        <Route path="/cursos-tallers/:id" element={<CourseWorkshopDetail />} />
-        <Route path="/agenda/:id" element={<EventDetail />} />
-        <Route path="/avis-legal" element={<LegalNotice />} />
-        <Route path="/comercos" element={<Businesses />} />
-        <Route path="/comercos/:id" element={<BusinessDetail />} />
-        <Route path="/contacte" element={<Contact />} />
-        <Route path="/mapa" element={<Map />} />
-        <Route path="/llocs/:id" element={<PointOfInterestDetail />} />
-        <Route path="/privacitat" element={<Privacy />} />
-        <Route path="/professionals" element={<Professionals />} />
-        <Route path="/professionals/:id" element={<ProfessionalDetail />} />
-        <Route path="/sobre-la-floresta" element={<About />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <AnalyticsConsent>
+        <Routes>
+          <Route path="/admin/login" element={<><Seo noindex /><AdminLogin /></>} />
+          <Route element={<><Seo noindex /><ProtectedAdminRoute /></>}>
+            <Route path="/admin/cursos-tallers" element={<AdminCoursesWorkshops />} />
+            <Route path="/admin/activitats" element={<AdminEvents />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/comercos" element={<AdminBusinesses />} />
+            <Route path="/admin/llocs" element={<AdminPointsOfInterest />} />
+            <Route path="/admin/professionals" element={<AdminProfessionals />} />
+          </Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/agenda" element={<Agenda />} />
+          <Route path="/cursos-tallers" element={<CoursesWorkshops />} />
+          <Route path="/cursos-tallers/:id" element={<CourseWorkshopDetail />} />
+          <Route path="/agenda/:id" element={<EventDetail />} />
+          <Route path="/avis-legal" element={<LegalNotice />} />
+          <Route path="/comercos" element={<Businesses />} />
+          <Route path="/comercos/:id" element={<BusinessDetail />} />
+          <Route path="/contacte" element={<Contact />} />
+          <Route path="/mapa" element={<Map />} />
+          <Route path="/llocs/:id" element={<PointOfInterestDetail />} />
+          <Route path="/privacitat" element={<Privacy />} />
+          <Route path="/professionals" element={<Professionals />} />
+          <Route path="/professionals/:id" element={<ProfessionalDetail />} />
+          <Route path="/sobre-la-floresta" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AnalyticsConsent>
     </BrowserRouter>
   )
 }
