@@ -401,14 +401,12 @@ h3 {
 
 .event-card .course-workshop-image {
   display: block;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  object-position: center;
-}
-
-.event-card .course-workshop-image-vertical {
-  aspect-ratio: 3 / 4;
+  width: 100%;
+  height: 240px;
+  aspect-ratio: auto;
   object-fit: contain;
+  object-position: center;
+  background-color: var(--soft);
 }
 
 .event-content,
