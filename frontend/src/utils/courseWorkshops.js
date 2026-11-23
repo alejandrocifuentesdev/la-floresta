@@ -1,3 +1,7 @@
+export function sortCoursesWorkshopsByDate(coursesWorkshops) {
+  return [...coursesWorkshops].sort((first, second) => first.date.localeCompare(second.date))
+}
+
 export function formatCourseWorkshopDate(value) {
   const date = new Date(`${value}T12:00:00`)
   return Number.isNaN(date.getTime())

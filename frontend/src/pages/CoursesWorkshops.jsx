@@ -4,7 +4,7 @@ import { api } from '../api/apiClient.js'
 import CourseWorkshopCard from '../components/CourseWorkshopCard.jsx'
 import Footer from '../components/Footer.jsx'
 import Navbar from '../components/Navbar.jsx'
-import { formatCourseWorkshop } from '../utils/courseWorkshops.js'
+import { formatCourseWorkshop, sortCoursesWorkshopsByDate } from '../utils/courseWorkshops.js'
 
 
 export default function CoursesWorkshops() {
@@ -15,7 +15,7 @@ export default function CoursesWorkshops() {
     api.getCoursesWorkshops()
       .then((data) => {
         if (!Array.isArray(data)) throw new Error('Expected an array from the API')
-        setCoursesWorkshops(data.map(formatCourseWorkshop))
+        setCoursesWorkshops(sortCoursesWorkshopsByDate(data).map(formatCourseWorkshop))
       })
       .catch(() => setError(true))
   }, [])

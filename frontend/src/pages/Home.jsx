@@ -4,7 +4,7 @@ import { api } from '../api/apiClient.js'
 import BusinessCard from '../components/BusinessCard.jsx'
 import EventCard from '../components/EventCard.jsx'
 import CourseWorkshopCard from '../components/CourseWorkshopCard.jsx'
-import { formatCourseWorkshop } from '../utils/courseWorkshops.js'
+import { formatCourseWorkshop, sortCoursesWorkshopsByDate } from '../utils/courseWorkshops.js'
 import Footer from '../components/Footer.jsx'
 import Navbar from '../components/Navbar.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
@@ -88,7 +88,8 @@ export default function Home() {
       request()
         .then((data) => {
           if (!Array.isArray(data)) throw new Error('Expected an array from the API')
-          setItems(data.slice(0, 3).map(formatter))
+          const orderedData = key === 'coursesWorkshops' ? sortCoursesWorkshopsByDate(data) : data
+          setItems(orderedData.slice(0, 3).map(formatter))
         })
         .catch(() => setErrors((current) => ({ ...current, [key]: true })))
     }
